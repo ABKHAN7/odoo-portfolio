@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abdul Basit — Odoo Techno-Functional Consultation</title>
+<meta name="description" content="Odoo ERP consultation, custom modules, API integrations, migrations, and SLA-driven support. 15+ rollouts delivered." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg: #0a0a0a;
+    --bg-elev: #131313;
+    --bg-card: #161616;
+    --border: #232323;
+    --border-bright: #333333;
+    --text: #f3f1ea;
+    --text-muted: #8b8b85;
+    --text-dim: #5c5c58;
+    --accent: #c5fb45;
+    --accent-soft: rgba(197, 251, 69, 0.12);
+    --accent-glow: rgba(197, 251, 69, 0.35);
+    --warn: #ff7a45;
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --maxw: 1280px;
+    --pad: clamp(1rem, 4vw, 2.5rem);
+  }
+
+  /* ---------- Reset ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Background atmosphere ---------- */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(197, 251, 69, 0.08), transparent 70%),
+      radial-gradient(ellipse 50% 50% at 100% 100%, rgba(197, 251, 69, 0.04), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: overlay;
+  }
+  main, header, footer { position: relative; z-index: 1; }
+
+  /* ---------- Layout shell ---------- */
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--pad);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(10, 10, 10, 0.7);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.1rem;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .brand-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 14px var(--accent-glow);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+  .nav-links {
+    display: none;
+    gap: 2rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .nav-links a { transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  @media (min-width: 900px) {
+    .nav-links { display: flex; }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+  }
+  .btn-primary:hover {
+    background: #d8ff6e;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -8px var(--accent-glow);
+  }
+  .btn-ghost {
+    color: var(--text);
+    border: 1px solid var(--border-bright);
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn-large {
+    padding: 1rem 1.6rem;
+    font-size: 0.85rem;
+  }
+  .arrow { display: inline-block; transition: transform 0.25s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: clamp(3rem, 9vw, 7rem) clamp(2.5rem, 7vw, 5rem);
+    position: relative;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--border-bright);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+  .live {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    animation: pulse 2s infinite;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 7.5vw, 5.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.6rem;
+    max-width: 14ch;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero-title .strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--text-muted);
+    max-width: 58ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-bottom: 3.5rem;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .hero-meta strong {
+    display: block;
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Hero side ornament */
+  .hero-grid-bg {
+    position: absolute;
+    top: 4rem;
+    right: -10%;
+    width: 60%;
+    height: 80%;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at top right, black, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at top right, black, transparent 70%);
+    display: none;
+  }
+  @media (min-width: 1100px) {
+    .hero-grid-bg { display: block; }
+  }
+
+  /* ---------- Section primitives ---------- */
+  section {
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .section-label::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.2rem;
+    max-width: 22ch;
+  }
+  .section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .section-lead {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 60ch;
+    margin-bottom: 3rem;
+  }
+
+  /* ---------- Problem section ---------- */
+  .problem-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  @media (min-width: 700px) { .problem-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .problem-grid { grid-template-columns: repeat(3, 1fr); } }
+  .problem-cell {
+    background: var(--bg);
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    transition: background 0.3s;
+  }
+  .problem-cell:hover { background: var(--bg-elev); }
+  .problem-num {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+  }
+  .problem-cell h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.6rem;
+    color: var(--text);
+  }
+  .problem-cell p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  /* ---------- Services ---------- */
+  .services {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 700px) { .services { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1050px) { .services { grid-template-columns: repeat(3, 1fr); } }
+  .service {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .service::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent-soft), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .service:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-3px);
+  }
+  .service:hover::before { opacity: 1; }
+  .service-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.3rem;
+    font-family: var(--mono);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .service h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.015em;
+  }
+  .service p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding: 0.25rem 0.55rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  /* ---------- Packages ---------- */
+  .packages {
+    display: grid;
+    gap: 1.25rem;
+  }
+  @media (min-width: 850px) { .packages { grid-template-columns: repeat(3, 1fr); } }
+  .pkg {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .pkg:hover { border-color: var(--border-bright); }
+  .pkg.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(197, 251, 69, 0.04), var(--bg-card));
+  }
+  .pkg.featured::before {
+    content: "Most popular";
+    position: absolute;
+    top: -10px;
+    left: 1.75rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+  .pkg-name {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+  .pkg-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+  .pkg-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    min-height: 2.8em;
+  }
+  .pkg-price {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .pkg-price span {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-left: 0.3rem;
+  }
+  .pkg-duration {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px dashed var(--border-bright);
+  }
+  .pkg-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+  .pkg-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--text);
+    padding-block: 0.45rem;
+  }
+  .pkg-features li::before {
+    content: "→";
+    color: var(--accent);
+    font-family: var(--mono);
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+  .pkg .btn { width: 100%; justify-content: center; }
+
+  /* ---------- Process timeline ---------- */
+  .process {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  @media (min-width: 850px) { .process { grid-template-columns: repeat(4, 1fr); } }
+  .step {
+    background: var(--bg);
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .step:hover { background: var(--bg-elev); }
+  .step-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--accent);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .step h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.015em;
+  }
+  .step p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* ---------- Tech stack ---------- */
+  .stack-section { background: var(--bg-elev); border-top: 1px solid var(--border); }
+  .stack-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+  @media (min-width: 900px) { .stack-grid { grid-template-columns: 1fr 1.4fr; align-items: start; } }
+  .stack-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--border-bright);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip.accent { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- Why me ---------- */
+  .why-grid {
+    display: grid;
+    gap: 2.5rem 3rem;
+  }
+  @media (min-width: 800px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+  .why-item {
+    display: flex;
+    gap: 1.3rem;
+    align-items: flex-start;
+  }
+  .why-mark {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  .why-item h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.015em;
+  }
+  .why-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq { max-width: 760px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 1.4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--accent); }
+  .faq-toggle {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 1.4rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .faq-item[open] .faq-toggle { transform: rotate(45deg); }
+  .faq-a {
+    padding: 0 0 1.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    max-width: 65ch;
+  }
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+
+  /* ---------- Final CTA ---------- */
+  .cta-block {
+    background:
+      radial-gradient(ellipse at top, var(--accent-soft), transparent 70%),
+      var(--bg-elev);
+    border: 1px solid var(--border-bright);
+    border-radius: 14px;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before, .cta-block::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--accent);
+    filter: blur(120px);
+    opacity: 0.18;
+  }
+  .cta-block::before { top: -50px; left: -50px; }
+  .cta-block::after { bottom: -50px; right: -50px; }
+  .cta-block > * { position: relative; }
+  .cta-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.2rem;
+    max-width: 20ch;
+    margin-inline: auto;
+  }
+  .cta-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .cta-sub {
+    color: var(--text-muted);
+    max-width: 50ch;
+    margin: 0 auto 2rem;
+    font-size: 1.02rem;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-block: 2.5rem;
+    margin-top: 4rem;
+  }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .foot a:hover { color: var(--accent); }
+  .foot-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  /* ---------- Animations on load ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .reveal-1 { animation-delay: 0.05s; }
+    .reveal-2 { animation-delay: 0.15s; }
+    .reveal-3 { animation-delay: 0.28s; }
+    .reveal-4 { animation-delay: 0.42s; }
+    .reveal-5 { animation-delay: 0.56s; }
+    @keyframes reveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  /* ---------- Marquee scroll indicator ---------- */
+  .marquee {
+    border-block: 1px solid var(--border);
+    overflow: hidden;
+    padding-block: 1.2rem;
+    background: var(--bg);
+  }
+  .marquee-inner {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: scroll 32s linear infinite;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  .marquee-inner span { display: inline-flex; align-items: center; gap: 4rem; }
+  .marquee-inner b { color: var(--accent); font-weight: 500; }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <span class="brand-dot"></span>
+      Abdul Basit<span style="color: var(--accent);">.</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#book" class="btn btn-primary">Book a call <span class="arrow">→</span></a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main>
+<section class="hero" style="border-top: none;">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap">
+    <span class="hero-eyebrow reveal reveal-1">
+      <span class="live"></span> Available · Booking June 2026
+    </span>
+    <h1 class="hero-title reveal reveal-2">
+      Your Odoo is <span class="strike">a maze</span> <em>a machine</em> when it's built right.
+    </h1>
+    <p class="hero-sub reveal reveal-3">
+      I'm a techno-functional Odoo developer who turns messy operations into reliable ERP flows.
+      15+ rollouts. Migrations from v14 → v19. Custom modules, API integrations, POS, QWeb reports,
+      Nginx + SSL, and SLA-driven support. Tell me your bottleneck — I'll map it, automate it, ship it.
+    </p>
+    <div class="hero-ctas reveal reveal-4">
+      <a href="#book" class="btn btn-primary btn-large">Book a free 30-min audit <span class="arrow">→</span></a>
+      <a href="#packages" class="btn btn-ghost btn-large">See consultation packages</a>
+    </div>
+    <div class="hero-meta reveal reveal-5">
+      <div><strong>15+</strong>Rollouts delivered</div>
+      <div><strong>v14 → v19</strong>Migrations completed solo</div>
+      <div><strong>100%</strong>On-time SLA record</div>
+      <div><strong>24 hrs</strong>Avg. response time</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>
+      ODOO 17 <b>★</b> ODOO 18 <b>★</b> ODOO 19 <b>★</b> CUSTOM MODULES <b>★</b> API INTEGRATIONS <b>★</b> POS <b>★</b> QWeb REPORTS <b>★</b> OWL.js <b>★</b> NGINX + SSL <b>★</b> POSTGRESQL <b>★</b> ODOO.SH <b>★</b> WHATSAPP BUSINESS API <b>★</b> DATA MIGRATIONS <b>★</b>
+    </span>
+    <span aria-hidden="true">
+      ODOO 17 <b>★</b> ODOO 18 <b>★</b> ODOO 19 <b>★</b> CUSTOM MODULES <b>★</b> API INTEGRATIONS <b>★</b> POS <b>★</b> QWeb REPORTS <b>★</b> OWL.js <b>★</b> NGINX + SSL <b>★</b> POSTGRESQL <b>★</b> ODOO.SH <b>★</b> WHATSAPP BUSINESS API <b>★</b> DATA MIGRATIONS <b>★</b>
+    </span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section id="problem">
+  <div class="wrap">
+    <div class="section-label">The bottlenecks</div>
+    <h2 class="section-title">Most Odoo headaches share <em>three roots</em>.</h2>
+    <p class="section-lead">If any of these sound familiar, the implementation isn't broken — it's untuned. That's a fixable problem, not a forklift replacement.</p>
+    <div class="problem-grid">
+      <div class="problem-cell">
+        <div class="problem-num">01 / Misalignment</div>
+        <h3>Modules don't match how your team actually works.</h3>
+        <p>Stock counts drift. Sales reps build workarounds in spreadsheets. Reports nobody trusts.</p>
+      </div>
+      <div class="problem-cell">
+        <div class="problem-num">02 / Half-built customizations</div>
+        <h3>Studio fields, broken inheritance, no audit trail.</h3>
+        <p>The last freelancer left technical debt where there should be modules. Upgrades break.</p>
+      </div>
+      <div class="problem-cell">
+        <div class="problem-num">03 / Untrusted data</div>
+        <h3>Migrations finished, but nothing reconciles.</h3>
+        <p>Pricelists, invoices, attendance — close, not exact. Finance won't sign off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-label">What I do</div>
+    <h2 class="section-title">From <em>diagnostic call</em> to deployed module.</h2>
+    <p class="section-lead">Six core service lines, each scoped, priced, and shipped against a measurable outcome — not a vague "support retainer".</p>
+
+    <div class="services">
+      <div class="service">
+        <div class="service-icon">01</div>
+        <h3>Implementation &amp; Configuration</h3>
+        <p>Full Odoo install, business-process mapping, module activation, role-based access, and go-live with rollback plan.</p>
+        <div class="service-tags">
+          <span class="tag">Odoo 17 / 18 / 19</span>
+          <span class="tag">Multi-company</span>
+          <span class="tag">Multi-currency</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">02</div>
+        <h3>Custom Modules</h3>
+        <p>ORM-first, Python + XML modules with proper inheritance, security rules, and tests. No Studio shortcuts that break on upgrade.</p>
+        <div class="service-tags">
+          <span class="tag">Python</span>
+          <span class="tag">OWL.js</span>
+          <span class="tag">XML / QWeb</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">03</div>
+        <h3>API Integrations</h3>
+        <p>WhatsApp Business, payment gateways, biometric devices, Tahometer, third-party ERPs — bidirectional sync with proper auth.</p>
+        <div class="service-tags">
+          <span class="tag">REST</span>
+          <span class="tag">OAuth2</span>
+          <span class="tag">Webhooks</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">04</div>
+        <h3>Data Migrations</h3>
+        <p>v14 → v15 → v17 → v19. Schema reconciliation, Studio cleanup, pricelist integrity, finance sign-off included.</p>
+        <div class="service-tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Cross-version</span>
+          <span class="tag">Audit-ready</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">05</div>
+        <h3>POS &amp; Website</h3>
+        <p>Custom POS workflows, receipt design, eCommerce theming, B2B portal logic, and on-brand checkout flows.</p>
+        <div class="service-tags">
+          <span class="tag">POS</span>
+          <span class="tag">eCommerce</span>
+          <span class="tag">Portal</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-icon">06</div>
+        <h3>Deployment &amp; Support</h3>
+        <p>Nginx + SSL hardening, Odoo.sh CI/CD, backup &amp; restore drills, plus SLA-driven monitoring and incident response.</p>
+        <div class="service-tags">
+          <span class="tag">Nginx</span>
+          <span class="tag">Odoo.sh</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section id="packages">
+  <div class="wrap">
+    <div class="section-label">Consultation packages</div>
+    <h2 class="section-title">Pick a starting <em>signal</em>.</h2>
+    <p class="section-lead">All engagements begin with a free 30-minute call. After that, you choose the level of depth that matches the problem.</p>
+
+    <div class="packages">
+
+      <div class="pkg">
+        <div class="pkg-name">Quick audit</div>
+        <h3 class="pkg-headline">Diagnostic Sprint</h3>
+        <p class="pkg-tagline">A focused review when you suspect something is wrong but can't pinpoint it.</p>
+        <div class="pkg-price">$249<span>flat</span></div>
+        <div class="pkg-duration">3 business days</div>
+        <ul class="pkg-features">
+          <li>1× 60-min discovery call</li>
+          <li>Full module &amp; configuration review</li>
+          <li>Written diagnostic report (PDF)</li>
+          <li>Prioritized fix list with effort estimates</li>
+          <li>30-day follow-up Q&amp;A via email</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Start with audit <span class="arrow">→</span></a>
+      </div>
+
+      <div class="pkg featured">
+        <div class="pkg-name">Implementation sprint</div>
+        <h3 class="pkg-headline">Build &amp; Ship</h3>
+        <p class="pkg-tagline">A fixed-scope engagement to deliver a custom module, integration, or migration end-to-end.</p>
+        <div class="pkg-price">From $1,200<span>per scope</span></div>
+        <div class="pkg-duration">2–4 weeks</div>
+        <ul class="pkg-features">
+          <li>Scoping document &amp; signed deliverable</li>
+          <li>Custom module / integration / migration</li>
+          <li>QWeb reports, OWL components, API hooks</li>
+          <li>Staging deploy + production cutover</li>
+          <li>14-day post-launch hypercare</li>
+          <li>Documentation handoff</li>
+        </ul>
+        <a href="#book" class="btn btn-primary">Scope my project <span class="arrow">→</span></a>
+      </div>
+
+      <div class="pkg">
+        <div class="pkg-name">Retainer</div>
+        <h3 class="pkg-headline">Embedded Partner</h3>
+        <p class="pkg-tagline">For teams who need a senior Odoo brain on tap — ongoing development, support, and strategy.</p>
+        <div class="pkg-price">From $1,800<span>/ month</span></div>
+        <div class="pkg-duration">40 hours, rolling monthly</div>
+        <ul class="pkg-features">
+          <li>Dedicated weekly check-in</li>
+          <li>Continuous module &amp; report development</li>
+          <li>Priority response SLA (4 business hrs)</li>
+          <li>Quarterly upgrade &amp; roadmap planning</li>
+          <li>Bug fixes, monitoring, performance tuning</li>
+          <li>Direct Slack / WhatsApp access</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Discuss retainer <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="wrap">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">A four-step path from <em>"it's broken"</em> to "it ships".</h2>
+    <p class="section-lead">No surprises, no vague invoices. Every engagement runs on this same rhythm.</p>
+    <div class="process">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Discovery call</h4>
+        <p>30 free minutes. I learn your stack, your team, and what's actually broken — not what the symptom says.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Scoped proposal</h4>
+        <p>Written scope, deliverables, timeline, fixed fee. You sign once. No scope creep without a change order.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Build &amp; review</h4>
+        <p>Daily progress on a shared board. Staging deploy mid-sprint so you see and test the work before production.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Ship &amp; hand off</h4>
+        <p>Production cutover, documentation, video walkthrough, and 14-day hypercare. Then we're done — cleanly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="stack-section">
+  <div class="wrap">
+    <div class="stack-grid">
+      <div>
+        <div class="section-label">The toolkit</div>
+        <h2 class="section-title" style="font-size: clamp(1.7rem, 3.5vw, 2.6rem);">Built with the same stack your <em>senior team</em> would use.</h2>
+        <p class="section-lead" style="margin-bottom: 0;">No black boxes. Every artifact is reviewable, version-controlled, and upgrade-safe.</p>
+      </div>
+      <div class="stack-chips">
+        <span class="chip accent">Odoo 17 / 18 / 19</span>
+        <span class="chip">Python 3.10+</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">XML / QWeb</span>
+        <span class="chip accent">OWL.js</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">REST / OAuth2</span>
+        <span class="chip">Nginx + SSL</span>
+        <span class="chip">Odoo.sh</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Git / GitHub Actions</span>
+        <span class="chip">CI/CD</span>
+        <span class="chip">Pillow</span>
+        <span class="chip">wkhtmltopdf</span>
+        <span class="chip accent">WhatsApp Business API</span>
+        <span class="chip">Tahometer</span>
+        <span class="chip">Biometric integrations</span>
+        <span class="chip">Excel / openpyxl</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ME ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-label">Why work with me</div>
+    <h2 class="section-title">Hire the <em>fix</em>, not the freelancer.</h2>
+    <p class="section-lead">What separates a $7/hr listing from a $1,200 fixed-scope delivery: ownership, accountability, and senior-grade engineering practice.</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-mark">★</span>
+        <div>
+          <h4>End-to-end ownership</h4>
+          <p>I scope it, build it, deploy it, document it, and hand it off. No "that's not in scope" surprises mid-sprint.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-mark">★</span>
+        <div>
+          <h4>Upgrade-safe code</h4>
+          <p>Proper module inheritance, no Studio hacks, security rules on every model. Your customizations survive the next Odoo release.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-mark">★</span>
+        <div>
+          <h4>Senior engineering discipline</h4>
+          <p>Git workflows, PR reviews, CI/CD, staging deploys, and a built-in AI security gatekeeper that audits every commit before merge.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-mark">★</span>
+        <div>
+          <h4>Communication that respects your time</h4>
+          <p>Daily standups, written progress on shared boards, and a 24-hr response SLA. You'll always know what's shipping and when.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-label">Common questions</div>
+    <h2 class="section-title">Things <em>buyers ask</em> before booking.</h2>
+    <div class="faq">
+      <details class="faq-item">
+        <summary class="faq-q">Do you work on both Odoo Community and Enterprise?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">Yes — both editions, versions 14 through 19. Most of my recent work is on 17, 18, and 19. I'll tell you upfront if a feature requires Enterprise so you can factor licensing into the decision.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Will you fix a previous developer's mess?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">Often, yes — that's actually a frequent engagement. Start with the Diagnostic Sprint so I can audit what's there, identify what's salvageable, and quote the cleanup honestly. I won't pretend nothing's wrong to win the project.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do you handle scope creep?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">Every engagement starts with a written scope document. Anything outside that scope gets a written change order with its own estimate and timeline. You stay in control — no surprise invoices.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can you sign an NDA?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">Yes. I regularly sign mutual NDAs before discovery calls when client data or proprietary processes are involved. Send yours, or use mine.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Do you host or just develop?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">Both options available. I deploy to Odoo.sh, your own VPS (Nginx + SSL hardened), or hybrid setups. Hosting choice usually depends on data residency, budget, and team familiarity — happy to advise.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What happens after the engagement ends?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">You own everything — source code, documentation, deployment configs. A 14-day hypercare window is included on every Build &amp; Ship engagement. After that you can extend on a retainer or hire your in-house team to maintain it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="book">
+  <div class="wrap">
+    <div class="cta-block">
+      <h2 class="cta-title">Tell me your bottleneck. <em>I'll map it, automate it, ship it.</em></h2>
+      <p class="cta-sub">Book a free 30-minute discovery call. No sales pitch — just a working session to figure out whether I'm the right person to fix your Odoo.</p>
+      <a href="https://www.upwork.com/freelancers/" class="btn btn-primary btn-large">Schedule a discovery call <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Abdul Basit · Odoo Techno-Functional Developer</div>
+    <div class="foot-links">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#faq">FAQ</a>
+      <a href="#book">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth-close other FAQ items when one opens (accordion behavior, optional)
+  const faqs = document.querySelectorAll('.faq-item');
+  faqs.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        faqs.forEach(other => { if (other !== item) other.open = false; });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
