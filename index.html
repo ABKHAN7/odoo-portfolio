@@ -2,1037 +2,514 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Abdul Basit — Odoo Techno-Functional Consultation</title>
-<meta name="description" content="Odoo ERP consultation, custom modules, API integrations, migrations, and SLA-driven support. 15+ rollouts delivered." />
-<meta name="theme-color" content="#0a0a0a" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Abdul Basit — Odoo Techno-Functional Developer</title>
+<meta name="description" content="Odoo ERP consultation, custom modules, API integrations, migrations v14→v19, and SLA-driven support. 15+ rollouts delivered." />
+<meta name="theme-color" content="#101418" />
 
-<!-- Social cards -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Abdul Basit — Odoo Techno-Functional Consultation" />
-<meta property="og:description" content="Custom modules, API integrations, migrations v14→v19, and SLA-driven support. 15+ Odoo rollouts delivered." />
+<meta property="og:title" content="Abdul Basit — Odoo Techno-Functional Developer" />
+<meta property="og:description" content="Custom modules, API integrations, migrations v14→v19, SLA-driven support. 15+ Odoo rollouts delivered." />
 <meta name="twitter:card" content="summary" />
 
-<!-- Favicon: on-brand lime dot -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23c5fb45'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='3' fill='none' stroke='%23d07a33' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23d07a33'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-  /* ---------- Tokens ---------- */
-  :root {
-    --bg: #0a0a0a;
-    --bg-elev: #131313;
-    --bg-card: #161616;
-    --border: #232323;
-    --border-bright: #333333;
-    --text: #f3f1ea;
-    --text-muted: #8b8b85;
-    --text-dim: #5c5c58;
-    --accent: #c5fb45;
-    --accent-soft: rgba(197, 251, 69, 0.12);
-    --accent-glow: rgba(197, 251, 69, 0.35);
-    --warn: #ff7a45;
-    --serif: 'Fraunces', 'Times New Roman', serif;
-    --sans: 'IBM Plex Sans', system-ui, sans-serif;
-    --mono: 'IBM Plex Mono', 'Courier New', monospace;
-    --maxw: 1280px;
-    --pad: clamp(1rem, 4vw, 2.5rem);
-    --header-h: 64px;
-  }
+/* ================= TOKENS ================= */
+:root{
+  --ink:#101418;
+  --ink-2:#161b20;
+  --ink-3:#1c2228;
+  --line:#262d33;
+  --line-hi:#39424a;
+  --paper:#ede8dc;
+  --paper-2:#e4ddcd;
+  --paper-line:#cfc6b1;
+  --paper-ink:#1b1e20;
+  --paper-mut:#5c5a52;
+  --copper:#d07a33;
+  --copper-hot:#e8934a;
+  --copper-soft:rgba(208,122,51,.13);
+  --steel:#8fb2c4;
+  --steel-soft:rgba(143,178,196,.12);
+  --ok:#7fbf7a;
+  --wa:#25D366;
+  --text:#e9e5da;
+  --mut:#9a978e;
+  --dim:#61666c;
+  --disp:'Instrument Serif',Georgia,serif;
+  --body:'Archivo',system-ui,sans-serif;
+  --mono:'Space Mono','Courier New',monospace;
+  --maxw:1240px;
+  --pad:clamp(1rem,4vw,2.5rem);
+  --hdr:64px;
+  --r:10px;
+}
 
-  /* ---------- Reset ---------- */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-weight: 300;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-  img { max-width: 100%; display: block; }
+/* ================= RESET ================= */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:var(--body);
+  font-weight:300;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img,svg{max-width:100%;display:block}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:2px solid var(--copper);outline-offset:3px;border-radius:4px;
+}
+.skip-link{
+  position:absolute;left:1rem;top:-100%;z-index:300;
+  background:var(--copper);color:var(--ink);
+  font-family:var(--mono);font-size:.8rem;padding:.6rem 1rem;border-radius:6px;
+  transition:top .2s;
+}
+.skip-link:focus{top:1rem}
+section[id]{scroll-margin-top:calc(var(--hdr) + 16px)}
 
-  /* Keyboard focus — visible, on brand */
-  a:focus-visible, button:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
+/* Blueprint grid atmosphere */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:72px 72px;
+  opacity:.28;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,black,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,black,transparent 75%);
+}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
 
-  /* Skip link for keyboard users */
-  .skip-link {
-    position: absolute;
-    left: 1rem; top: -100%;
-    z-index: 200;
-    background: var(--accent);
-    color: var(--bg);
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
-    transition: top 0.2s;
-  }
-  .skip-link:focus { top: 1rem; }
+/* ================= HEADER ================= */
+header{
+  position:sticky;top:0;z-index:60;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(16,20,24,.78);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:var(--hdr);padding-block:.55rem}
+.brand{font-family:var(--disp);font-size:1.35rem;letter-spacing:-.01em;display:flex;align-items:center;gap:.6rem;white-space:nowrap}
+.brand-mark{
+  width:14px;height:14px;border:2px solid var(--copper);border-radius:3px;flex-shrink:0;position:relative;
+}
+.brand-mark::after{content:"";position:absolute;inset:3px;background:var(--copper);border-radius:1px}
+.nav-links{display:none;gap:1.9rem;font-family:var(--mono);font-size:.74rem;color:var(--mut);text-transform:uppercase;letter-spacing:.09em}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--copper-hot)}
+.nav-cta{display:none}
+@media (min-width:920px){.nav-links{display:flex}.nav-cta{display:inline-flex}}
 
-  /* Anchored sections clear the sticky header */
-  section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+.menu-btn{
+  display:inline-flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  width:44px;height:44px;border:1px solid var(--line-hi);border-radius:10px;transition:border-color .2s;
+}
+.menu-btn:hover{border-color:var(--copper)}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:transform .25s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (min-width:920px){.menu-btn{display:none}}
 
-  /* ---------- Background atmosphere ---------- */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(197, 251, 69, 0.08), transparent 70%),
-      radial-gradient(ellipse 50% 50% at 100% 100%, rgba(197, 251, 69, 0.04), transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
-    opacity: 0.025;
-    pointer-events: none;
-    z-index: 0;
-    mix-blend-mode: overlay;
-  }
-  main, header, footer { position: relative; z-index: 1; }
+.mobile-nav{
+  position:fixed;top:var(--hdr);left:0;right:0;z-index:59;
+  background:rgba(16,20,24,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-hi);
+  padding:.6rem var(--pad) calc(1.4rem + env(safe-area-inset-bottom));
+  display:grid;gap:.2rem;
+  transform:translateY(-8px);opacity:0;visibility:hidden;
+  transition:transform .25s,opacity .25s,visibility .25s;
+}
+.mobile-nav.open{transform:translateY(0);opacity:1;visibility:visible}
+.mobile-nav a{
+  font-family:var(--mono);font-size:.92rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text);
+  padding:.95rem .25rem;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;min-height:48px;
+}
+.mobile-nav a .arrow{color:var(--copper)}
+.mobile-nav .btn{margin-top:1rem;justify-content:center;border-bottom:none}
+@media (min-width:920px){.mobile-nav{display:none}}
 
-  /* ---------- Layout shell ---------- */
-  .wrap {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding-inline: var(--pad);
-  }
+/* ================= BUTTONS ================= */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.72rem 1.25rem;border-radius:999px;
+  font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.01em;
+  transition:transform .25s,box-shadow .25s,background .25s,border-color .25s,color .25s;
+  white-space:nowrap;min-height:44px;
+}
+.btn-primary{background:var(--copper);color:#14100b}
+.btn-primary:hover{background:var(--copper-hot);transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(208,122,51,.5)}
+.btn-ghost{color:var(--text);border:1px solid var(--line-hi)}
+.btn-ghost:hover{border-color:var(--copper);color:var(--copper-hot)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:#1ebe5b;transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(37,211,102,.45);color:#fff}
+.btn-large{padding:1rem 1.6rem;font-size:.85rem}
+.wa-icon{width:18px;height:18px;flex-shrink:0}
+.arrow{display:inline-block;transition:transform .25s}
+.btn:hover .arrow{transform:translateX(3px)}
+@media (max-width:460px){.btn-large{width:100%}}
 
-  /* ---------- Header ---------- */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    background: rgba(10, 10, 10, 0.7);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    min-height: var(--header-h);
-    padding-block: 0.6rem;
-  }
-  .brand {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.25rem;
-    letter-spacing: -0.02em;
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    white-space: nowrap;
-  }
-  .brand-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 14px var(--accent-glow);
-    animation: pulse 2.5s ease-in-out infinite;
-    flex-shrink: 0;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(0.85); }
-  }
-  .nav-links {
-    display: none;
-    gap: 2rem;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .nav-links a { transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); }
-  .nav-cta { display: none; }
-  @media (min-width: 900px) {
-    .nav-links { display: flex; }
-    .nav-cta { display: inline-flex; }
-  }
+/* ================= HERO ================= */
+.hero{padding-block:clamp(2.6rem,8vw,6rem) clamp(2rem,6vw,4rem)}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.45rem .95rem;border:1px solid var(--line-hi);border-radius:999px;
+  font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);
+  margin-bottom:1.9rem;
+}
+.live{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px rgba(127,191,122,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
+.hero-title{
+  font-family:var(--disp);font-weight:400;
+  font-size:clamp(2.5rem,8vw,5.6rem);
+  line-height:1.02;letter-spacing:-.02em;
+  max-width:15ch;text-wrap:balance;margin-bottom:1.5rem;
+}
+.hero-title em{font-style:italic;color:var(--copper-hot)}
+.hero-sub{
+  font-size:clamp(1rem,1.6vw,1.2rem);color:var(--mut);
+  max-width:56ch;line-height:1.55;margin-bottom:2.3rem;
+}
+.hero-sub b{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:clamp(2.4rem,5vw,3.6rem)}
 
-  /* Mobile menu button (hamburger) */
-  .menu-btn {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    border: 1px solid var(--border-bright);
-    border-radius: 10px;
-    transition: border-color 0.2s;
-  }
-  .menu-btn:hover { border-color: var(--accent); }
-  .menu-btn span {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.2s ease;
-  }
-  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  @media (min-width: 900px) { .menu-btn { display: none; } }
+/* Document-chain schematic (signature) */
+.chain{
+  border:1px solid var(--line);border-radius:var(--r);
+  background:linear-gradient(180deg,var(--ink-2),var(--ink));
+  padding:clamp(1rem,3vw,1.8rem);
+  margin-bottom:clamp(2.2rem,5vw,3.4rem);
+  overflow:hidden;
+}
+.chain-head{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);
+  margin-bottom:1rem;
+}
+.chain-head b{color:var(--steel);font-weight:400}
+.chain-track{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.chain-node{position:relative;padding:0 .35rem;text-align:center}
+.chain-node::before{
+  content:"";position:absolute;top:14px;left:calc(-50% + 16px);right:calc(50% + 16px);
+  height:0;border-top:2px dashed var(--line-hi);
+}
+.chain-node:first-child::before{display:none}
+.chain-node.done::before{border-color:var(--copper)}
+.chain-dot{
+  width:28px;height:28px;margin:0 auto .6rem;border-radius:50%;
+  border:2px solid var(--line-hi);background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:.72rem;color:var(--dim);
+  transition:border-color .4s,color .4s,background .4s,box-shadow .4s;
+  position:relative;z-index:1;
+}
+.chain-node.done .chain-dot{border-color:var(--copper);color:var(--copper-hot);background:var(--copper-soft)}
+.chain-node.active .chain-dot{border-color:var(--copper-hot);color:var(--ink);background:var(--copper-hot);box-shadow:0 0 18px rgba(232,147,74,.5)}
+.chain-label{font-family:var(--mono);font-size:clamp(.58rem,1.6vw,.72rem);letter-spacing:.06em;color:var(--mut);text-transform:uppercase}
+.chain-state{font-family:var(--mono);font-size:clamp(.55rem,1.5vw,.68rem);color:var(--dim);margin-top:.25rem;min-height:1.2em}
+.chain-node.done .chain-state{color:var(--ok)}
+.chain-node.active .chain-state{color:var(--copper-hot)}
+@media (max-width:560px){
+  .chain-track{grid-template-columns:repeat(5,minmax(64px,1fr))}
+  .chain{overflow-x:auto}
+  .chain-track{min-width:420px}
+}
 
-  /* Mobile menu panel */
-  .mobile-nav {
-    position: fixed;
-    top: var(--header-h);
-    left: 0; right: 0;
-    z-index: 49;
-    background: rgba(10, 10, 10, 0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-bright);
-    padding: 0.75rem var(--pad) 1.5rem;
-    display: grid;
-    gap: 0.25rem;
-    transform: translateY(-8px);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s;
-  }
-  .mobile-nav.open { transform: translateY(0); opacity: 1; visibility: visible; }
-  .mobile-nav a {
-    font-family: var(--mono);
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text);
-    padding: 0.9rem 0.25rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mobile-nav a .arrow { color: var(--accent); }
-  .mobile-nav .btn { margin-top: 1rem; justify-content: center; border-bottom: none; }
-  @media (min-width: 900px) { .mobile-nav { display: none; } }
+.hero-meta{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1.5rem clamp(1.25rem,4vw,3rem);
+  padding-top:2.2rem;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:.78rem;color:var(--mut);
+}
+@media (min-width:800px){.hero-meta{grid-template-columns:repeat(4,auto);justify-content:start}}
+.hero-meta strong{
+  display:block;color:var(--text);font-family:var(--disp);font-weight:400;
+  font-size:clamp(1.6rem,3vw,2.3rem);letter-spacing:-.02em;margin-bottom:.15rem;
+}
+.hero-meta strong i{font-style:italic;color:var(--copper-hot)}
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.2rem;
-    border-radius: 999px;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0a;
-  }
-  .btn-primary:hover {
-    background: #d8ff6e;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px -8px var(--accent-glow);
-  }
-  .btn-ghost {
-    color: var(--text);
-    border: 1px solid var(--border-bright);
-  }
-  .btn-ghost:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .btn-whatsapp {
-    background: #25D366;
-    color: #ffffff;
-  }
-  .btn-whatsapp:hover {
-    background: #1ebe5b;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px -8px rgba(37, 211, 102, 0.45);
-    color: #ffffff;
-  }
-  .wa-icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-  .btn-large {
-    padding: 1rem 1.6rem;
-    font-size: 0.85rem;
-  }
-  @media (max-width: 420px) {
-    .btn-large { width: 100%; justify-content: center; }
-  }
-  .arrow { display: inline-block; transition: transform 0.25s; }
-  .btn:hover .arrow { transform: translateX(3px); }
+/* ================= TICKER ================= */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding-block:1.05rem;background:var(--ink-2)}
+.ticker-inner{
+  display:flex;gap:3.5rem;white-space:nowrap;
+  animation:scroll 34s linear infinite;
+  font-family:var(--mono);font-size:.8rem;color:var(--mut);letter-spacing:.05em;
+}
+.ticker:hover .ticker-inner{animation-play-state:paused}
+.ticker-inner span{display:inline-flex;align-items:center;gap:3.5rem}
+.ticker-inner b{color:var(--copper);font-weight:400}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  .cta-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    justify-content: center;
-    align-items: center;
-  }
+/* ================= SECTIONS ================= */
+section{padding-block:clamp(3.4rem,8vw,6.2rem);border-top:1px solid var(--line)}
+.sec-label{
+  font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--copper);margin-bottom:1.3rem;display:flex;align-items:center;gap:.7rem;
+}
+.sec-label::before{content:"";width:28px;height:1px;background:var(--copper)}
+.sec-title{
+  font-family:var(--disp);font-weight:400;
+  font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:1.06;letter-spacing:-.015em;
+  max-width:24ch;text-wrap:balance;margin-bottom:1.1rem;
+}
+.sec-title em{font-style:italic;color:var(--copper-hot)}
+.sec-lead{color:var(--mut);font-size:1.03rem;max-width:60ch;margin-bottom:2.8rem}
 
-  /* ---------- CTA QR code ---------- */
-  .cta-qr {
-    margin-top: 2.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .cta-qr-divider {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    width: 100%;
-    max-width: 320px;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  .cta-qr-divider::before,
-  .cta-qr-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border-bright);
-  }
-  .cta-qr-card {
-    display: block;
-    width: 170px;
-    height: 170px;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #ffffff;
-    padding: 0;
-    box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .cta-qr-card:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 18px 36px -10px rgba(37, 211, 102, 0.4), 0 0 0 1px rgba(197, 251, 69, 0.3);
-  }
-  .cta-qr-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 700px) {
-    .cta-qr { display: none; }
-  }
+/* Paper (inverted) sections */
+.paper{background:var(--paper);color:var(--paper-ink);border-top:1px solid var(--paper-line)}
+.paper .sec-label{color:#a85e22}
+.paper .sec-label::before{background:#a85e22}
+.paper .sec-title em{color:#b1631f}
+.paper .sec-lead{color:var(--paper-mut)}
 
-  /* ---------- Floating WhatsApp button ---------- */
-  .wa-float {
-    position: fixed;
-    bottom: 1.4rem;
-    right: 1.4rem;
-    z-index: 100;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #25D366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.55);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    animation: waPulse 2.4s ease-in-out infinite;
-  }
-  .wa-float:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
-    animation: none;
-  }
-  .wa-float svg {
-    width: 32px;
-    height: 32px;
-    color: #ffffff;
-  }
-  .wa-float-label {
-    position: absolute;
-    right: calc(100% + 0.6rem);
-    top: 50%;
-    transform: translateY(-50%);
-    background: #131313;
-    border: 1px solid var(--border-bright);
-    color: var(--text);
-    padding: 0.5rem 0.85rem;
-    border-radius: 8px;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  .wa-float:hover .wa-float-label {
-    opacity: 1;
-    transform: translateY(-50%) translateX(-4px);
-  }
-  @keyframes waPulse {
-    0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.55); }
-    50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 14px rgba(37, 211, 102, 0); }
-  }
-  @media (max-width: 600px) {
-    .wa-float { width: 54px; height: 54px; bottom: 1rem; right: 1rem; }
-    .wa-float svg { width: 28px; height: 28px; }
-    .wa-float-label { display: none; }
-  }
+/* Reveal */
+[data-reveal]{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  [data-reveal].in-view{opacity:1;transform:translateY(0)}
+  .reveal{opacity:0;transform:translateY(18px);animation:reveal .85s cubic-bezier(.16,1,.3,1) forwards}
+  .reveal-1{animation-delay:.05s}.reveal-2{animation-delay:.15s}.reveal-3{animation-delay:.28s}
+  .reveal-4{animation-delay:.42s}.reveal-5{animation-delay:.56s}.reveal-6{animation-delay:.7s}
+  @keyframes reveal{to{opacity:1;transform:translateY(0)}}
+}
 
-  /* ---------- Hero ---------- */
-  .hero {
-    padding-block: clamp(3rem, 9vw, 7rem) clamp(2.5rem, 7vw, 5rem);
-    position: relative;
-  }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.45rem 0.9rem;
-    border: 1px solid var(--border-bright);
-    border-radius: 999px;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
-  .live {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent-glow);
-    animation: pulse 2s infinite;
-  }
-  .hero-title {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(2.4rem, 7.5vw, 5.8rem);
-    line-height: 0.98;
-    letter-spacing: -0.035em;
-    margin-bottom: 1.6rem;
-    max-width: 14ch;
-    text-wrap: balance;
-  }
-  .hero-title em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--accent);
-  }
-  .hero-title .strike {
-    text-decoration: line-through;
-    text-decoration-thickness: 1px;
-    color: var(--text-dim);
-    font-style: italic;
-  }
-  .hero-sub {
-    font-size: clamp(1.02rem, 1.6vw, 1.25rem);
-    color: var(--text-muted);
-    max-width: 58ch;
-    margin-bottom: 2.5rem;
-    line-height: 1.5;
-  }
-  .hero-ctas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    margin-bottom: 3.5rem;
-  }
-  .hero-meta {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.6rem clamp(1.25rem, 4vw, 3rem);
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-  @media (min-width: 800px) {
-    .hero-meta { grid-template-columns: repeat(4, auto); justify-content: start; }
-  }
-  .hero-meta strong {
-    display: block;
-    color: var(--text);
-    font-family: var(--serif);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.2rem;
-  }
+/* ================= PROBLEM ================= */
+.problem-grid{
+  display:grid;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));
+}
+.problem-cell{background:var(--ink);padding:clamp(1.4rem,3vw,2.2rem);transition:background .3s}
+.problem-cell:hover{background:var(--ink-2)}
+.problem-tag{font-family:var(--mono);font-size:.72rem;color:var(--steel);margin-bottom:1rem;letter-spacing:.08em}
+.problem-cell h3{font-family:var(--disp);font-weight:400;font-size:1.4rem;line-height:1.18;margin-bottom:.55rem}
+.problem-cell p{color:var(--mut);font-size:.92rem}
 
-  /* Hero side ornament */
-  .hero-grid-bg {
-    position: absolute;
-    top: 4rem;
-    right: -10%;
-    width: 60%;
-    height: 80%;
-    pointer-events: none;
-    opacity: 0.4;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse at top right, black, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at top right, black, transparent 70%);
-    display: none;
-  }
-  @media (min-width: 1100px) {
-    .hero-grid-bg { display: block; }
-  }
+/* ================= DIAGNOSER (signature 2) ================= */
+.diag{
+  border:1px solid var(--line-hi);border-radius:14px;
+  background:linear-gradient(180deg,var(--ink-3),var(--ink-2));
+  padding:clamp(1.4rem,4vw,2.6rem);
+}
+.diag-step{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--steel);margin-bottom:.9rem}
+.diag-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.8rem}
+.diag-chip{
+  font-family:var(--mono);font-size:.78rem;padding:.6rem 1rem;min-height:44px;
+  border:1px solid var(--line-hi);border-radius:999px;background:var(--ink);color:var(--text);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.diag-chip:hover{border-color:var(--copper)}
+.diag-chip[aria-pressed="true"]{border-color:var(--copper);background:var(--copper-soft);color:var(--copper-hot)}
+.diag-out{
+  border-top:1px dashed var(--line-hi);padding-top:1.6rem;
+  display:grid;gap:1.2rem;
+}
+@media (min-width:820px){.diag-out{grid-template-columns:1.3fr 1fr;align-items:start}}
+.diag-verdict h4{font-family:var(--disp);font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem);margin-bottom:.4rem}
+.diag-verdict h4 em{font-style:italic;color:var(--copper-hot)}
+.diag-verdict p{color:var(--mut);font-size:.95rem;max-width:52ch}
+.diag-actions{display:flex;flex-direction:column;gap:.7rem}
+.diag-note{font-family:var(--mono);font-size:.7rem;color:var(--dim);margin-top:.2rem}
 
-  /* ---------- Section primitives ---------- */
-  section {
-    padding-block: clamp(3.5rem, 8vw, 6.5rem);
-    border-top: 1px solid var(--border);
-  }
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    margin-bottom: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-  }
-  .section-label::before {
-    content: "";
-    width: 28px;
-    height: 1px;
-    background: var(--accent);
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(1.9rem, 4.5vw, 3.4rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.2rem;
-    max-width: 22ch;
-    text-wrap: balance;
-  }
-  .section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
-  .section-lead {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 60ch;
-    margin-bottom: 3rem;
-  }
+/* ================= CARD GRIDS (services / work) ================= */
+.cards{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.card{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.8rem;position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s;
+}
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--copper-soft),transparent 60%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.card:hover{border-color:var(--line-hi);transform:translateY(-3px)}
+.card:hover::before{opacity:1}
+.card-icon{
+  width:42px;height:42px;border-radius:8px;background:var(--copper-soft);color:var(--copper-hot);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;
+  font-family:var(--mono);font-size:.95rem;font-weight:700;
+}
+.card h3{font-family:var(--disp);font-weight:400;font-size:1.32rem;margin-bottom:.55rem}
+.card p{color:var(--mut);font-size:.92rem;line-height:1.55}
+.card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid var(--line)}
+.tag{font-family:var(--mono);font-size:.68rem;color:var(--mut);padding:.25rem .55rem;background:var(--ink);border:1px solid var(--line);border-radius:4px}
 
-  /* ---------- Scroll reveal ---------- */
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    [data-reveal].in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+/* ================= PACKAGES (paper) ================= */
+.packages{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.pkg{
+  background:#fdfaf3;border:1px solid var(--paper-line);border-radius:12px;
+  padding:2rem 1.75rem;display:flex;flex-direction:column;position:relative;
+  transition:border-color .3s,box-shadow .3s;
+}
+.pkg:hover{border-color:#b1631f;box-shadow:0 14px 30px -18px rgba(60,40,10,.35)}
+.pkg.featured{border:2px solid #b1631f;background:linear-gradient(180deg,#fff6e8,#fdfaf3)}
+.pkg.featured::before{
+  content:"Most booked";position:absolute;top:-11px;left:1.6rem;
+  background:#b1631f;color:#fff6e8;font-family:var(--mono);font-size:.68rem;font-weight:700;
+  padding:.28rem .7rem;border-radius:999px;letter-spacing:.05em;
+}
+@media (max-width:759px){.pkg.featured{order:-1;margin-top:12px}}
+.pkg-name{font-family:var(--mono);font-size:.74rem;color:var(--paper-mut);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.9rem}
+.pkg-headline{font-family:var(--disp);font-weight:400;font-size:1.85rem;line-height:1.08;margin-bottom:.55rem}
+.pkg-tagline{color:var(--paper-mut);font-size:.94rem;margin-bottom:1.4rem}
+.pkg-price{font-family:var(--disp);font-size:2.2rem;line-height:1;margin-bottom:.3rem;color:var(--paper-ink)}
+.pkg-price span{font-family:var(--mono);font-size:.82rem;color:var(--paper-mut);margin-left:.3rem}
+.pkg-duration{font-family:var(--mono);font-size:.76rem;color:var(--paper-mut);margin-bottom:1.6rem;padding-bottom:1.4rem;border-bottom:1px dashed var(--paper-line)}
+.pkg-features{list-style:none;margin-bottom:1.8rem;flex:1}
+.pkg-features li{display:flex;align-items:flex-start;gap:.6rem;font-size:.92rem;padding-block:.42rem;color:#3a3a34}
+.pkg-features li::before{content:"→";color:#b1631f;font-family:var(--mono);flex-shrink:0;margin-top:.05em}
+.pkg .btn{width:100%}
+.pkg .btn-primary{background:#b1631f;color:#fff6e8}
+.pkg .btn-primary:hover{background:#c9772c;box-shadow:0 12px 28px -10px rgba(177,99,31,.5)}
+.pkg .btn-ghost{border-color:var(--paper-line);color:var(--paper-ink)}
+.pkg .btn-ghost:hover{border-color:#b1631f;color:#b1631f}
 
-  /* ---------- Problem section ---------- */
-  .problem-grid {
-    display: grid;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  @media (min-width: 700px) { .problem-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .problem-grid { grid-template-columns: repeat(3, 1fr); } }
-  .problem-cell {
-    background: var(--bg);
-    padding: clamp(1.5rem, 3vw, 2.2rem);
-    transition: background 0.3s;
-  }
-  .problem-cell:hover { background: var(--bg-elev); }
-  .problem-num {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    margin-bottom: 1rem;
-  }
-  .problem-cell h3 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 1.35rem;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    margin-bottom: 0.6rem;
-    color: var(--text);
-  }
-  .problem-cell p {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-  }
+/* ================= PROCESS ================= */
+.process{
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:6px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
+}
+.step{background:var(--ink);padding:2rem 1.5rem;transition:background .3s}
+.step:hover{background:var(--ink-2)}
+.step-num{font-family:var(--disp);font-style:italic;font-size:2.2rem;color:var(--copper);line-height:1;margin-bottom:1rem}
+.step h4{font-family:var(--disp);font-weight:400;font-size:1.22rem;margin-bottom:.5rem}
+.step p{color:var(--mut);font-size:.88rem;line-height:1.5}
 
-  /* ---------- Services ---------- */
-  .services {
-    display: grid;
-    gap: 1.5rem;
-  }
-  @media (min-width: 700px) { .services { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1050px) { .services { grid-template-columns: repeat(3, 1fr); } }
-  .service {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.8rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .service::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--accent-soft), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-  }
-  .service:hover {
-    border-color: var(--border-bright);
-    transform: translateY(-3px);
-  }
-  .service:hover::before { opacity: 1; }
-  .service-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 8px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.3rem;
-    font-family: var(--mono);
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  .service h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.25rem;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.015em;
-  }
-  .service p {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-    line-height: 1.55;
-  }
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 1.2rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--border);
-  }
-  .tag {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    padding: 0.25rem 0.55rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-  }
+/* ================= ABOUT (paper) ================= */
+.about-grid{display:grid;gap:2.2rem}
+@media (min-width:900px){.about-grid{grid-template-columns:1.35fr 1fr;align-items:start}}
+.about-copy p{color:#3a3a34;font-size:1.02rem;line-height:1.65;margin-bottom:1.1rem;max-width:62ch}
+.about-copy b{font-weight:600;color:var(--paper-ink)}
+.about-facts{display:grid;gap:1px;background:var(--paper-line);border:1px solid var(--paper-line);border-radius:8px;overflow:hidden}
+.fact{background:#fdfaf3;padding:1.15rem 1.3rem;display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.fact-k{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--paper-mut)}
+.fact-v{font-family:var(--body);font-weight:500;font-size:.95rem;text-align:right;color:var(--paper-ink)}
 
-  /* ---------- Packages ---------- */
-  .packages {
-    display: grid;
-    gap: 1.25rem;
-  }
-  @media (min-width: 850px) { .packages { grid-template-columns: repeat(3, 1fr); } }
-  .pkg {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 2rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .pkg:hover { border-color: var(--border-bright); }
-  .pkg.featured {
-    border-color: var(--accent);
-    background: linear-gradient(180deg, rgba(197, 251, 69, 0.04), var(--bg-card));
-  }
-  .pkg.featured::before {
-    content: "Most popular";
-    position: absolute;
-    top: -10px;
-    left: 1.75rem;
-    background: var(--accent);
-    color: var(--bg);
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    letter-spacing: 0.04em;
-  }
-  @media (max-width: 849px) {
-    .pkg.featured { order: -1; margin-top: 10px; }
-  }
-  .pkg-name {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 1rem;
-  }
-  .pkg-headline {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 1.8rem;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 0.6rem;
-  }
-  .pkg-tagline {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    min-height: 2.8em;
-  }
-  .pkg-price {
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  .pkg-price span {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-left: 0.3rem;
-  }
-  .pkg-duration {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-bottom: 1.8rem;
-    padding-bottom: 1.6rem;
-    border-bottom: 1px dashed var(--border-bright);
-  }
-  .pkg-features {
-    list-style: none;
-    margin-bottom: 2rem;
-    flex: 1;
-  }
-  .pkg-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.92rem;
-    color: var(--text);
-    padding-block: 0.45rem;
-  }
-  .pkg-features li::before {
-    content: "→";
-    color: var(--accent);
-    font-family: var(--mono);
-    flex-shrink: 0;
-    margin-top: 0.05em;
-  }
-  .pkg .btn { width: 100%; justify-content: center; }
+/* ================= STACK ================= */
+.stack-grid{display:grid;gap:2.4rem}
+@media (min-width:900px){.stack-grid{grid-template-columns:1fr 1.4fr;align-items:start}}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{
+  font-family:var(--mono);font-size:.76rem;padding:.5rem .9rem;min-height:38px;display:inline-flex;align-items:center;
+  border:1px solid var(--line-hi);border-radius:999px;background:var(--ink);transition:border-color .2s,color .2s;
+}
+.chip:hover{border-color:var(--copper);color:var(--copper-hot)}
+.chip.hot{background:var(--copper-soft);border-color:var(--copper);color:var(--copper-hot)}
+.chip.cool{background:var(--steel-soft);border-color:var(--steel);color:var(--steel)}
 
-  /* ---------- Process timeline ---------- */
-  .process {
-    display: grid;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  @media (min-width: 600px) { .process { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .process { grid-template-columns: repeat(4, 1fr); } }
-  .step {
-    background: var(--bg);
-    padding: 2rem 1.5rem;
-    position: relative;
-    transition: background 0.3s;
-  }
-  .step:hover { background: var(--bg-elev); }
-  .step-num {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 2.2rem;
-    color: var(--accent);
-    font-weight: 400;
-    line-height: 1;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
-  .step h4 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.015em;
-  }
-  .step p {
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    line-height: 1.5;
-  }
+/* ================= WHY ================= */
+.why-grid{display:grid;gap:2.2rem 3rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.why-item{display:flex;gap:1.2rem;align-items:flex-start}
+.why-mark{font-family:var(--disp);font-style:italic;font-size:1.7rem;color:var(--copper);line-height:1;flex-shrink:0;margin-top:.15rem}
+.why-item h4{font-family:var(--disp);font-weight:400;font-size:1.25rem;margin-bottom:.45rem}
+.why-item p{color:var(--mut);font-size:.94rem}
 
-  /* ---------- Tech stack ---------- */
-  .stack-section { background: var(--bg-elev); border-top: 1px solid var(--border); }
-  .stack-grid {
-    display: grid;
-    gap: 2.5rem;
-  }
-  @media (min-width: 900px) { .stack-grid { grid-template-columns: 1fr 1.4fr; align-items: start; } }
-  .stack-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .chip {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    padding: 0.5rem 0.9rem;
-    border: 1px solid var(--border-bright);
-    border-radius: 999px;
-    background: var(--bg);
-    color: var(--text);
-    transition: all 0.2s;
-  }
-  .chip:hover { border-color: var(--accent); color: var(--accent); }
-  .chip.accent { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+/* ================= FAQ ================= */
+.faq{max-width:780px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:first-child{border-top:1px solid var(--line)}
+.faq-q{
+  width:100%;text-align:left;padding:1.35rem 0;min-height:52px;
+  display:flex;align-items:center;justify-content:space-between;gap:1.4rem;
+  font-family:var(--disp);font-size:clamp(1.05rem,2vw,1.2rem);transition:color .2s;
+}
+.faq-q:hover{color:var(--copper-hot)}
+.faq-toggle{color:var(--copper);font-family:var(--mono);font-size:1.4rem;transition:transform .3s;flex-shrink:0}
+.faq-item[open] .faq-toggle{transform:rotate(45deg)}
+.faq-a{padding:0 0 1.5rem 0;color:var(--mut);font-size:.97rem;line-height:1.65;max-width:66ch}
+details summary{list-style:none;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
 
-  /* ---------- Why me ---------- */
-  .why-grid {
-    display: grid;
-    gap: 2.5rem 3rem;
-  }
-  @media (min-width: 800px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
-  .why-item {
-    display: flex;
-    gap: 1.3rem;
-    align-items: flex-start;
-  }
-  .why-mark {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.8rem;
-    color: var(--accent);
-    line-height: 1;
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-  }
-  .why-item h4 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.015em;
-  }
-  .why-item p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-  }
+/* ================= FINAL CTA ================= */
+.cta-block{
+  background:radial-gradient(ellipse at top,var(--copper-soft),transparent 70%),var(--ink-2);
+  border:1px solid var(--line-hi);border-radius:16px;
+  padding:clamp(2.4rem,6vw,5rem) clamp(1.2rem,4vw,3rem);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-block::before,.cta-block::after{
+  content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+  background:var(--copper);filter:blur(130px);opacity:.16;
+}
+.cta-block::before{top:-60px;left:-60px}
+.cta-block::after{bottom:-60px;right:-60px}
+.cta-block>*{position:relative}
+.cta-title{
+  font-family:var(--disp);font-weight:400;
+  font-size:clamp(1.7rem,4.6vw,3rem);line-height:1.06;letter-spacing:-.015em;
+  max-width:22ch;margin:0 auto 1.15rem;text-wrap:balance;
+}
+.cta-title em{font-style:italic;color:var(--copper-hot)}
+.cta-sub{color:var(--mut);max-width:50ch;margin:0 auto 2rem;font-size:1rem}
+.cta-buttons{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
+.cta-qr{margin-top:2.2rem;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.cta-qr-divider{
+  display:flex;align-items:center;gap:.85rem;width:100%;max-width:320px;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+}
+.cta-qr-divider::before,.cta-qr-divider::after{content:"";flex:1;height:1px;background:var(--line-hi)}
+.cta-qr-card{
+  display:block;width:168px;height:168px;border-radius:14px;overflow:hidden;background:#fff;
+  box-shadow:0 12px 28px -10px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);
+  transition:transform .25s,box-shadow .25s;
+}
+.cta-qr-card:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 36px -10px rgba(37,211,102,.4)}
+.cta-qr-card img{width:100%;height:100%;object-fit:cover}
+@media (max-width:700px){.cta-qr{display:none}}
 
-  /* ---------- FAQ ---------- */
-  .faq { max-width: 760px; }
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-  }
-  .faq-item:first-child { border-top: 1px solid var(--border); }
-  .faq-q {
-    width: 100%;
-    text-align: left;
-    padding: 1.4rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: color 0.2s;
-  }
-  .faq-q:hover { color: var(--accent); }
-  .faq-toggle {
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 1.4rem;
-    transition: transform 0.3s;
-    flex-shrink: 0;
-  }
-  .faq-item[open] .faq-toggle { transform: rotate(45deg); }
-  .faq-a {
-    padding: 0 0 1.5rem 0;
-    color: var(--text-muted);
-    font-size: 0.98rem;
-    line-height: 1.65;
-    max-width: 65ch;
-  }
-  details summary { list-style: none; cursor: pointer; }
-  details summary::-webkit-details-marker { display: none; }
+/* ================= FOOTER ================= */
+footer{border-top:1px solid var(--line);padding-block:2.4rem;margin-top:3.5rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.4rem;font-family:var(--mono);font-size:.78rem;color:var(--mut)}
+.foot a:hover{color:var(--copper-hot)}
+.foot-links{display:flex;gap:1.4rem;flex-wrap:wrap}
 
-  /* ---------- Final CTA ---------- */
-  .cta-block {
-    background:
-      radial-gradient(ellipse at top, var(--accent-soft), transparent 70%),
-      var(--bg-elev);
-    border: 1px solid var(--border-bright);
-    border-radius: 14px;
-    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-block::before, .cta-block::after {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: var(--accent);
-    filter: blur(120px);
-    opacity: 0.18;
-  }
-  .cta-block::before { top: -50px; left: -50px; }
-  .cta-block::after { bottom: -50px; right: -50px; }
-  .cta-block > * { position: relative; }
-  .cta-title {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(1.7rem, 4.5vw, 3rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.2rem;
-    max-width: 20ch;
-    margin-inline: auto;
-    text-wrap: balance;
-  }
-  .cta-title em { font-style: italic; color: var(--accent); font-weight: 300; }
-  .cta-sub {
-    color: var(--text-muted);
-    max-width: 50ch;
-    margin: 0 auto 2rem;
-    font-size: 1.02rem;
-  }
+/* ================= FLOATING WA ================= */
+.wa-float{
+  position:fixed;bottom:calc(1.3rem + env(safe-area-inset-bottom));right:calc(1.3rem + env(safe-area-inset-right));
+  z-index:100;width:58px;height:58px;border-radius:50%;background:var(--wa);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.45);
+  transition:transform .25s,box-shadow .25s;
+  animation:waPulse 2.4s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.6);animation:none}
+.wa-float svg{width:30px;height:30px;color:#fff}
+.wa-float-label{
+  position:absolute;right:calc(100% + .6rem);top:50%;transform:translateY(-50%);
+  background:var(--ink-2);border:1px solid var(--line-hi);color:var(--text);
+  padding:.5rem .85rem;border-radius:8px;font-family:var(--mono);font-size:.72rem;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+}
+.wa-float:hover .wa-float-label{opacity:1;transform:translateY(-50%) translateX(-4px)}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.5)}
+  50%{box-shadow:0 8px 24px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}
+}
+@media (max-width:600px){
+  .wa-float{width:52px;height:52px}
+  .wa-float svg{width:26px;height:26px}
+  .wa-float-label{display:none}
+}
 
-  /* ---------- Footer ---------- */
-  footer {
-    border-top: 1px solid var(--border);
-    padding-block: 2.5rem;
-    margin-top: 4rem;
-  }
-  .foot {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-  .foot a:hover { color: var(--accent); }
-  .foot-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-
-  /* ---------- Hero load animation ---------- */
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .reveal-1 { animation-delay: 0.05s; }
-    .reveal-2 { animation-delay: 0.15s; }
-    .reveal-3 { animation-delay: 0.28s; }
-    .reveal-4 { animation-delay: 0.42s; }
-    .reveal-5 { animation-delay: 0.56s; }
-    @keyframes reveal {
-      to { opacity: 1; transform: translateY(0); }
-    }
-  }
-
-  /* ---------- Marquee scroll indicator ---------- */
-  .marquee {
-    border-block: 1px solid var(--border);
-    overflow: hidden;
-    padding-block: 1.2rem;
-    background: var(--bg);
-  }
-  .marquee-inner {
-    display: flex;
-    gap: 4rem;
-    white-space: nowrap;
-    animation: scroll 32s linear infinite;
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-  }
-  .marquee:hover .marquee-inner { animation-play-state: paused; }
-  .marquee-inner span { display: inline-flex; align-items: center; gap: 4rem; }
-  .marquee-inner b { color: var(--accent); font-weight: 500; }
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .marquee { overflow-x: auto; }
-    .marquee-inner { animation: none; }
-    .brand-dot, .live { animation: none; }
-    .wa-float { animation: none; }
-  }
-
+@media (prefers-reduced-motion:reduce){
+  .ticker{overflow-x:auto}
+  .ticker-inner{animation:none}
+  .live,.wa-float{animation:none}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
@@ -1043,17 +520,18 @@
 <header>
   <div class="wrap nav">
     <a href="#" class="brand">
-      <span class="brand-dot"></span>
-      Abdul Basit<span style="color: var(--accent);">.</span>
+      <span class="brand-mark" aria-hidden="true"></span>
+      Abdul&nbsp;Basit
     </a>
     <nav class="nav-links" aria-label="Primary">
+      <a href="#diagnose">Diagnose</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
       <a href="#packages">Packages</a>
-      <a href="#process">Process</a>
+      <a href="#about">About</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <div style="display:flex; align-items:center; gap:0.6rem;">
+    <div style="display:flex;align-items:center;gap:.6rem;">
       <a href="#book" class="btn btn-primary nav-cta">Book a call <span class="arrow">→</span></a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -1062,78 +540,126 @@
   </div>
 </header>
 
-<!-- Mobile navigation panel -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="#diagnose">Diagnose <span class="arrow">→</span></a>
   <a href="#services">Services <span class="arrow">→</span></a>
   <a href="#work">Work <span class="arrow">→</span></a>
   <a href="#packages">Packages <span class="arrow">→</span></a>
-  <a href="#process">Process <span class="arrow">→</span></a>
+  <a href="#about">About <span class="arrow">→</span></a>
   <a href="#faq">FAQ <span class="arrow">→</span></a>
   <a href="#book" class="btn btn-primary">Book a call <span class="arrow">→</span></a>
 </nav>
 
-<!-- ============ HERO ============ -->
 <main>
-<section class="hero" style="border-top: none;">
-  <div class="hero-grid-bg"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="border-top:none;">
   <div class="wrap">
-    <span class="hero-eyebrow reveal reveal-1">
-      <span class="live"></span> Available · Booking August 2026
-    </span>
-    <h1 class="hero-title reveal reveal-2">
-      Your Odoo is <span class="strike">a maze</span> <em>a machine</em> when it's built right.
-    </h1>
+    <span class="hero-eyebrow reveal reveal-1"><span class="live"></span> Available · Booking August 2026</span>
+
+    <h1 class="hero-title reveal reveal-2">From quotation to ledger — <em>one clean flow.</em></h1>
+
     <p class="hero-sub reveal reveal-3">
-      I'm a techno-functional Odoo developer who turns messy operations into reliable ERP flows.
-      15+ rollouts. Migrations from v14 → v19. Custom modules, API integrations, POS, QWeb reports,
-      Nginx + SSL, and SLA-driven support. Tell me your bottleneck — I'll map it, automate it, ship it.
+      I'm a techno-functional Odoo developer. I take the operations your team runs in
+      spreadsheets, WhatsApp threads, and workarounds — and turn them into ERP flows that
+      <b>reconcile, upgrade safely, and don't need you at 2 a.m.</b>
+      15+ rollouts. Migrations v14 → v19. Custom modules, API integrations, POS, QWeb, Nginx + SSL, SLA support.
     </p>
+
     <div class="hero-ctas reveal reveal-4">
       <a href="#book" class="btn btn-primary btn-large">Book a free 30-min audit <span class="arrow">→</span></a>
-      <a href="#packages" class="btn btn-ghost btn-large">See consultation packages</a>
+      <a href="#diagnose" class="btn btn-ghost btn-large">Diagnose my bottleneck</a>
     </div>
-    <div class="hero-meta reveal reveal-5">
-      <div><strong>15+</strong>Rollouts delivered</div>
-      <div><strong>v14 → v19</strong>Migrations completed solo</div>
-      <div><strong>100%</strong>On-time SLA record</div>
-      <div><strong>4 hrs</strong>Avg. response time</div>
+
+    <!-- Signature: live document chain -->
+    <div class="chain reveal reveal-5" aria-label="Animated Odoo document chain, quotation through payment">
+      <div class="chain-head">
+        <span>SO/2026/0F41 · <b>document chain</b></span>
+        <span id="chainStatus">syncing…</span>
+      </div>
+      <div class="chain-track" id="chainTrack">
+        <div class="chain-node"><div class="chain-dot">Q</div><div class="chain-label">Quotation</div><div class="chain-state">draft</div></div>
+        <div class="chain-node"><div class="chain-dot">SO</div><div class="chain-label">Sale order</div><div class="chain-state">—</div></div>
+        <div class="chain-node"><div class="chain-dot">DO</div><div class="chain-label">Delivery</div><div class="chain-state">—</div></div>
+        <div class="chain-node"><div class="chain-dot">INV</div><div class="chain-label">Invoice</div><div class="chain-state">—</div></div>
+        <div class="chain-node"><div class="chain-dot">PAY</div><div class="chain-label">Payment</div><div class="chain-state">—</div></div>
+      </div>
+    </div>
+
+    <div class="hero-meta reveal reveal-6">
+      <div><strong>15<i>+</i></strong>Rollouts delivered</div>
+      <div><strong>v14 <i>→</i> v19</strong>Migrations completed solo</div>
+      <div><strong>100<i>%</i></strong>On-time SLA record</div>
+      <div><strong>4 <i>hrs</i></strong>Avg. response time</div>
     </div>
   </div>
 </section>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-inner">
-    <span>
-      ODOO 17 <b>★</b> ODOO 18 <b>★</b> ODOO 19 <b>★</b> CUSTOM MODULES <b>★</b> API INTEGRATIONS <b>★</b> POS <b>★</b> QWeb REPORTS <b>★</b> OWL.js <b>★</b> NGINX + SSL <b>★</b> POSTGRESQL <b>★</b> ODOO.SH <b>★</b> WHATSAPP BUSINESS API <b>★</b> DATA MIGRATIONS <b>★</b>
-    </span>
-    <span aria-hidden="true">
-      ODOO 17 <b>★</b> ODOO 18 <b>★</b> ODOO 19 <b>★</b> CUSTOM MODULES <b>★</b> API INTEGRATIONS <b>★</b> POS <b>★</b> QWeb REPORTS <b>★</b> OWL.js <b>★</b> NGINX + SSL <b>★</b> POSTGRESQL <b>★</b> ODOO.SH <b>★</b> WHATSAPP BUSINESS API <b>★</b> DATA MIGRATIONS <b>★</b>
-    </span>
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>ODOO 17 <b>◆</b> ODOO 18 <b>◆</b> ODOO 19 <b>◆</b> CUSTOM MODULES <b>◆</b> API INTEGRATIONS <b>◆</b> POS <b>◆</b> QWeb REPORTS <b>◆</b> OWL.js <b>◆</b> NGINX + SSL <b>◆</b> POSTGRESQL <b>◆</b> ODOO.SH <b>◆</b> WHATSAPP BUSINESS API <b>◆</b> DATA MIGRATIONS <b>◆</b></span>
+    <span aria-hidden="true">ODOO 17 <b>◆</b> ODOO 18 <b>◆</b> ODOO 19 <b>◆</b> CUSTOM MODULES <b>◆</b> API INTEGRATIONS <b>◆</b> POS <b>◆</b> QWeb REPORTS <b>◆</b> OWL.js <b>◆</b> NGINX + SSL <b>◆</b> POSTGRESQL <b>◆</b> ODOO.SH <b>◆</b> WHATSAPP BUSINESS API <b>◆</b> DATA MIGRATIONS <b>◆</b></span>
   </div>
 </div>
 
 <!-- ============ PROBLEM ============ -->
 <section id="problem">
   <div class="wrap" data-reveal>
-    <div class="section-label">The bottlenecks</div>
-    <h2 class="section-title">Most Odoo headaches share <em>three roots</em>.</h2>
-    <p class="section-lead">If any of these sound familiar, the implementation isn't broken — it's untuned. That's a fixable problem, not a forklift replacement.</p>
+    <div class="sec-label">Where it hurts</div>
+    <h2 class="sec-title">If the ERP were working, you wouldn't be reading this. <em>Here's what's usually wrong.</em></h2>
+    <p class="sec-lead">Most struggling Odoo installs aren't broken — they're untuned. That's a fixable engineering problem, not a forklift replacement.</p>
     <div class="problem-grid">
       <div class="problem-cell">
-        <div class="problem-num">01 / Misalignment</div>
-        <h3>Modules don't match how your team actually works.</h3>
-        <p>Stock counts drift. Sales reps build workarounds in spreadsheets. Reports nobody trusts.</p>
+        <div class="problem-tag">PATTERN A · misalignment</div>
+        <h3>The system models a business — just not yours.</h3>
+        <p>Stock counts drift. Sales keeps a parallel spreadsheet. Reports exist, but nobody bets a decision on them.</p>
       </div>
       <div class="problem-cell">
-        <div class="problem-num">02 / Half-built customizations</div>
-        <h3>Studio fields, broken inheritance, no audit trail.</h3>
-        <p>The last freelancer left technical debt where there should be modules. Upgrades break.</p>
+        <div class="problem-tag">PATTERN B · quiet debt</div>
+        <h3>Studio fields where modules should be.</h3>
+        <p>The last freelancer shipped shortcuts, not code. Every upgrade is a coin flip, and nothing has an audit trail.</p>
       </div>
       <div class="problem-cell">
-        <div class="problem-num">03 / Untrusted data</div>
-        <h3>Migrations finished, but nothing reconciles.</h3>
-        <p>Pricelists, invoices, attendance — close, not exact. Finance won't sign off.</p>
+        <div class="problem-tag">PATTERN C · untrusted data</div>
+        <h3>The migration "finished". Finance disagrees.</h3>
+        <p>Pricelists, invoices, valuations — close, not exact. Until it reconciles to the rupee or cent, it isn't done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIAGNOSER ============ -->
+<section id="diagnose">
+  <div class="wrap" data-reveal>
+    <div class="sec-label">30-second diagnosis</div>
+    <h2 class="sec-title">Tap your bottleneck. Get a <em>starting point.</em></h2>
+    <p class="sec-lead">Pick what hurts most right now. You'll get the engagement I'd recommend and a pre-written brief — send it and I'll reply within 4 business hours.</p>
+
+    <div class="diag">
+      <div class="diag-step">01 / What's the pain?</div>
+      <div class="diag-chips" id="diagChips" role="group" aria-label="Select your main bottleneck">
+        <button class="diag-chip" data-k="reconcile" aria-pressed="false">Inventory / accounting won't reconcile</button>
+        <button class="diag-chip" data-k="mess" aria-pressed="false">Previous developer's mess</button>
+        <button class="diag-chip" data-k="module" aria-pressed="false">Need a custom module or report</button>
+        <button class="diag-chip" data-k="integration" aria-pressed="false">Connect Odoo to another system</button>
+        <button class="diag-chip" data-k="migration" aria-pressed="false">Stuck or risky version migration</button>
+        <button class="diag-chip" data-k="ongoing" aria-pressed="false">Need ongoing senior support</button>
+      </div>
+
+      <div class="diag-out">
+        <div class="diag-verdict">
+          <h4 id="diagTitle">Waiting on you. <em>Tap one above.</em></h4>
+          <p id="diagBody">Every path starts with a free 30-minute call — the diagnosis just tells us both where to aim it.</p>
+        </div>
+        <div class="diag-actions">
+          <a class="btn btn-primary" id="diagMail" href="#book">Email this brief <span class="arrow">→</span></a>
+          <a class="btn btn-wa" href="https://wa.me/qr/ZGEFWENWRH36B1" target="_blank" rel="noopener">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp me
+          </a>
+          <div class="diag-note" id="diagNote">The email button pre-fills your brief — you just press send.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1142,70 +668,46 @@
 <!-- ============ SERVICES ============ -->
 <section id="services">
   <div class="wrap" data-reveal>
-    <div class="section-label">What I do</div>
-    <h2 class="section-title">From <em>diagnostic call</em> to deployed module.</h2>
-    <p class="section-lead">Six core service lines, each scoped, priced, and shipped against a measurable outcome — not a vague "support retainer".</p>
+    <div class="sec-label">What I do</div>
+    <h2 class="sec-title">Six service lines. Each one ends in <em>something shipped.</em></h2>
+    <p class="sec-lead">Scoped, priced, and delivered against a measurable outcome — not a vague "support retainer".</p>
 
-    <div class="services">
-      <div class="service">
-        <div class="service-icon">01</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">01</div>
         <h3>Implementation &amp; Configuration</h3>
-        <p>Full Odoo install, business-process mapping, module activation, role-based access, and go-live with rollback plan.</p>
-        <div class="service-tags">
-          <span class="tag">Odoo 17 / 18 / 19</span>
-          <span class="tag">Multi-company</span>
-          <span class="tag">Multi-currency</span>
-        </div>
+        <p>Full Odoo install, business-process mapping, module activation, role-based access, and go-live with a rollback plan.</p>
+        <div class="card-tags"><span class="tag">Odoo 17 / 18 / 19</span><span class="tag">Multi-company</span><span class="tag">Multi-currency</span></div>
       </div>
-      <div class="service">
-        <div class="service-icon">02</div>
+      <div class="card">
+        <div class="card-icon">02</div>
         <h3>Custom Modules</h3>
-        <p>ORM-first, Python + XML modules with proper inheritance, security rules, and tests. No Studio shortcuts that break on upgrade.</p>
-        <div class="service-tags">
-          <span class="tag">Python</span>
-          <span class="tag">OWL.js</span>
-          <span class="tag">XML / QWeb</span>
-        </div>
+        <p>ORM-first Python + XML modules with proper inheritance, coded security rules, and tests. No Studio shortcuts that die on upgrade.</p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">OWL.js</span><span class="tag">XML / QWeb</span></div>
       </div>
-      <div class="service">
-        <div class="service-icon">03</div>
+      <div class="card">
+        <div class="card-icon">03</div>
         <h3>API Integrations</h3>
         <p>WhatsApp Business, payment gateways, biometric devices, Tahometer, third-party ERPs — bidirectional sync with proper auth.</p>
-        <div class="service-tags">
-          <span class="tag">REST</span>
-          <span class="tag">OAuth2</span>
-          <span class="tag">Webhooks</span>
-        </div>
+        <div class="card-tags"><span class="tag">REST</span><span class="tag">OAuth2</span><span class="tag">Webhooks</span></div>
       </div>
-      <div class="service">
-        <div class="service-icon">04</div>
+      <div class="card">
+        <div class="card-icon">04</div>
         <h3>Data Migrations</h3>
-        <p>v14 → v15 → v17 → v19. Schema reconciliation, Studio cleanup, pricelist integrity, finance sign-off included.</p>
-        <div class="service-tags">
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Cross-version</span>
-          <span class="tag">Audit-ready</span>
-        </div>
+        <p>v14 → v15 → v17 → v19. Schema reconciliation, Studio cleanup, pricelist integrity — finance sign-off included, not optional.</p>
+        <div class="card-tags"><span class="tag">PostgreSQL</span><span class="tag">Cross-version</span><span class="tag">Audit-ready</span></div>
       </div>
-      <div class="service">
-        <div class="service-icon">05</div>
+      <div class="card">
+        <div class="card-icon">05</div>
         <h3>POS &amp; Website</h3>
-        <p>Custom POS workflows, receipt design, eCommerce theming, B2B portal logic, and on-brand checkout flows.</p>
-        <div class="service-tags">
-          <span class="tag">POS</span>
-          <span class="tag">eCommerce</span>
-          <span class="tag">Portal</span>
-        </div>
+        <p>Custom POS workflows, receipt design, eCommerce theming, B2B portal logic, and checkout flows that match your brand.</p>
+        <div class="card-tags"><span class="tag">POS</span><span class="tag">eCommerce</span><span class="tag">Portal</span></div>
       </div>
-      <div class="service">
-        <div class="service-icon">06</div>
+      <div class="card">
+        <div class="card-icon">06</div>
         <h3>Deployment &amp; Support</h3>
         <p>Nginx + SSL hardening, Odoo.sh CI/CD, backup &amp; restore drills, plus SLA-driven monitoring and incident response.</p>
-        <div class="service-tags">
-          <span class="tag">Nginx</span>
-          <span class="tag">Odoo.sh</span>
-          <span class="tag">CI/CD</span>
-        </div>
+        <div class="card-tags"><span class="tag">Nginx</span><span class="tag">Odoo.sh</span><span class="tag">CI/CD</span></div>
       </div>
     </div>
   </div>
@@ -1214,91 +716,59 @@
 <!-- ============ SELECTED WORK ============ -->
 <section id="work">
   <div class="wrap" data-reveal>
-    <div class="section-label">Selected work</div>
-    <h2 class="section-title">Systems that run <em>real businesses</em>.</h2>
-    <p class="section-lead">A sample of delivered engagements. Client names withheld under confidentiality — full details, architecture walkthroughs, and references available in conversation.</p>
+    <div class="sec-label">Selected work</div>
+    <h2 class="sec-title">Systems that run <em>real businesses.</em></h2>
+    <p class="sec-lead">A sample of delivered engagements. Client names withheld under confidentiality — full architecture walkthroughs and references available on a call.</p>
 
-    <div class="services">
-
-      <div class="service">
-        <div class="service-icon">01</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">A</div>
         <h3>Full ERP — agricultural trading company</h3>
         <p>End-to-end implementation across every branch: Inventory, Sales, Purchase, Accounting, and a complete HR cycle. Multi-branch POS at every outlet, tied into centralized stock and finance. One data flow from supplier to ledger.</p>
-        <div class="service-tags">
-          <span class="tag">Implementation</span>
-          <span class="tag">Multi-branch POS</span>
-          <span class="tag">Accounting</span>
-        </div>
+        <div class="card-tags"><span class="tag">Implementation</span><span class="tag">Multi-branch POS</span><span class="tag">Accounting</span></div>
       </div>
-
-      <div class="service">
-        <div class="service-icon">02</div>
+      <div class="card">
+        <div class="card-icon">B</div>
         <h3>Restaurant POS — international coffee chain location</h3>
         <p>Full restaurant workflow for a location of a major global coffee-and-fast-food brand: dine-in, takeaway and delivery, table management, kitchen order routing with separate receipt and kitchen printers, and shift open/close management.</p>
-        <div class="service-tags">
-          <span class="tag">Restaurant POS</span>
-          <span class="tag">Kitchen printing</span>
-          <span class="tag">Shift management</span>
-        </div>
+        <div class="card-tags"><span class="tag">Restaurant POS</span><span class="tag">Kitchen printing</span><span class="tag">Shift management</span></div>
       </div>
-
-      <div class="service">
-        <div class="service-icon">03</div>
+      <div class="card">
+        <div class="card-icon">C</div>
         <h3>HR lifecycle automation — apparel manufacturer</h3>
-        <p>Recruitment-to-resignation in one loop: job requisition, hiring pipeline, onboarding, attendance, payroll — and when a resignation is confirmed, the position reopens and the recruitment pipeline restarts automatically. No orphaned headcount.</p>
-        <div class="service-tags">
-          <span class="tag">HR</span>
-          <span class="tag">Payroll</span>
-          <span class="tag">Workflow automation</span>
-        </div>
+        <p>Recruitment-to-resignation in one loop: requisition, hiring pipeline, onboarding, attendance, payroll — and when a resignation is confirmed, the position reopens and recruitment restarts automatically. No orphaned headcount.</p>
+        <div class="card-tags"><span class="tag">HR</span><span class="tag">Payroll</span><span class="tag">Workflow automation</span></div>
       </div>
-
-      <div class="service">
-        <div class="service-icon">04</div>
+      <div class="card">
+        <div class="card-icon">D</div>
         <h3>Manufacturing — packaging company</h3>
-        <p>MRP implementation for a packaging manufacturer: bills of materials, work centers, production orders wired into purchasing and inventory so planned output and raw-material buying stay in lockstep.</p>
-        <div class="service-tags">
-          <span class="tag">MRP</span>
-          <span class="tag">BoM</span>
-          <span class="tag">Inventory</span>
-        </div>
+        <p>MRP implementation: bills of materials, work centers, production orders wired into purchasing and inventory so planned output and raw-material buying stay in lockstep.</p>
+        <div class="card-tags"><span class="tag">MRP</span><span class="tag">BoM</span><span class="tag">Inventory</span></div>
       </div>
-
-      <div class="service">
-        <div class="service-icon">05</div>
+      <div class="card">
+        <div class="card-icon">E</div>
         <h3>Cross-version migration — v17 → v18 Enterprise</h3>
         <p>Production migration delivered on Upwork: customers, products, and open transactions moved without data loss, finance-reconciled before cutover. Rated 5.0 by the client. Currently running a 124-module v17 → v19 migration in my full-time role.</p>
-        <div class="service-tags">
-          <span class="tag">Migration</span>
-          <span class="tag">5.0 rated</span>
-          <span class="tag">124 modules</span>
-        </div>
+        <div class="card-tags"><span class="tag">Migration</span><span class="tag">5.0 rated</span><span class="tag">124 modules</span></div>
       </div>
-
-      <div class="service">
-        <div class="service-icon">06</div>
+      <div class="card">
+        <div class="card-icon">F</div>
         <h3>Tax, quotations &amp; CRM — North American building supplier</h3>
         <p>Ongoing remote engagement: custom tax handling for packing and window quotations, CRM intake forms, and financial reporting for an industrial supplier serving Canadian and US customers.</p>
-        <div class="service-tags">
-          <span class="tag">Custom tax</span>
-          <span class="tag">CRM</span>
-          <span class="tag">Reporting</span>
-        </div>
+        <div class="card-tags"><span class="tag">Custom tax</span><span class="tag">CRM</span><span class="tag">Reporting</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============ PACKAGES ============ -->
-<section id="packages">
+<!-- ============ PACKAGES (paper) ============ -->
+<section id="packages" class="paper">
   <div class="wrap" data-reveal>
-    <div class="section-label">Consultation packages</div>
-    <h2 class="section-title">Pick a starting <em>signal</em>.</h2>
-    <p class="section-lead">All engagements begin with a free 30-minute call. After that, you choose the level of depth that matches the problem.</p>
+    <div class="sec-label">Consultation packages</div>
+    <h2 class="sec-title">Pick a starting <em>signal.</em></h2>
+    <p class="sec-lead">Every engagement begins with a free 30-minute call. After that, you choose the depth that matches the problem.</p>
 
     <div class="packages">
-
       <div class="pkg">
         <div class="pkg-name">Quick audit</div>
         <h3 class="pkg-headline">Diagnostic Sprint</h3>
@@ -1312,13 +782,13 @@
           <li>Prioritized fix list with effort estimates</li>
           <li>30-day follow-up Q&amp;A via email</li>
         </ul>
-        <a href="#book" class="btn btn-ghost">Start with audit <span class="arrow">→</span></a>
+        <a href="#book" class="btn btn-ghost">Start with an audit <span class="arrow">→</span></a>
       </div>
 
       <div class="pkg featured">
-        <div class="pkg-name">Implementation sprint</div>
+        <div class="pkg-name">Fixed scope</div>
         <h3 class="pkg-headline">Build &amp; Ship</h3>
-        <p class="pkg-tagline">A fixed-scope engagement to deliver a custom module, integration, or migration end-to-end.</p>
+        <p class="pkg-tagline">A fixed-scope engagement delivering a custom module, integration, or migration end-to-end.</p>
         <div class="pkg-price">From $1,200<span>per scope</span></div>
         <div class="pkg-duration">2–4 weeks</div>
         <ul class="pkg-features">
@@ -1335,7 +805,7 @@
       <div class="pkg">
         <div class="pkg-name">Retainer</div>
         <h3 class="pkg-headline">Embedded Partner</h3>
-        <p class="pkg-tagline">For teams who need a senior Odoo brain on tap — ongoing development, support, and strategy.</p>
+        <p class="pkg-tagline">A senior Odoo brain on tap — ongoing development, support, and roadmap strategy.</p>
         <div class="pkg-price">From $1,800<span>/ month</span></div>
         <div class="pkg-duration">40 hours, rolling monthly</div>
         <ul class="pkg-features">
@@ -1346,9 +816,8 @@
           <li>Bug fixes, monitoring, performance tuning</li>
           <li>Direct Slack / WhatsApp access</li>
         </ul>
-        <a href="#book" class="btn btn-ghost">Discuss retainer <span class="arrow">→</span></a>
+        <a href="#book" class="btn btn-ghost">Discuss a retainer <span class="arrow">→</span></a>
       </div>
-
     </div>
   </div>
 </section>
@@ -1356,9 +825,9 @@
 <!-- ============ PROCESS ============ -->
 <section id="process">
   <div class="wrap" data-reveal>
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">A four-step path from <em>"it's broken"</em> to "it ships".</h2>
-    <p class="section-lead">No surprises, no vague invoices. Every engagement runs on this same rhythm.</p>
+    <div class="sec-label">How it works</div>
+    <h2 class="sec-title">Four steps from <em>"it's broken"</em> to "it ships".</h2>
+    <p class="sec-lead">No surprises, no vague invoices. Every engagement runs on the same rhythm.</p>
     <div class="process">
       <div class="step">
         <div class="step-num">01</div>
@@ -1368,12 +837,12 @@
       <div class="step">
         <div class="step-num">02</div>
         <h4>Scoped proposal</h4>
-        <p>Written scope, deliverables, timeline, fixed fee. You sign once. No scope creep without a change order.</p>
+        <p>Written scope, deliverables, timeline, fixed fee. You sign once. Nothing changes without a written change order.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <h4>Build &amp; review</h4>
-        <p>Daily progress on a shared board. Staging deploy mid-sprint so you see and test the work before production.</p>
+        <p>Daily progress on a shared board. Staging deploy mid-sprint so you test the work before production ever sees it.</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
@@ -1384,23 +853,46 @@
   </div>
 </section>
 
+<!-- ============ ABOUT (paper) ============ -->
+<section id="about" class="paper">
+  <div class="wrap" data-reveal>
+    <div class="sec-label">About</div>
+    <h2 class="sec-title">The person behind <em>the commits.</em></h2>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>I'm Abdul Basit — a techno-functional Odoo developer based in Islamabad, Pakistan, with <b>4+ years across Odoo v14 through v19</b>.</p>
+        <p>By day I'm the in-house Odoo engineer at an <b>engineering manufacturer</b>, where I'm currently driving a <b>124-module v17 → v19 migration</b> alongside custom inventory, sales, and security modules. Part-time, I support a <b>North American building-supplies company</b> remotely — custom tax logic, CRM, and financial reporting for Canadian and US operations.</p>
+        <p>Techno-functional means I don't just write the code — I sit with your warehouse lead, your accountant, and your sales head first, so what ships matches how the business actually runs. The code side is <b>Python, PostgreSQL, OWL.js, QWeb, REST APIs, Nginx, and Odoo.sh CI/CD</b>, with Git discipline on every commit.</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact"><span class="fact-k">Base</span><span class="fact-v">Islamabad, Pakistan (remote worldwide)</span></div>
+        <div class="fact"><span class="fact-k">Experience</span><span class="fact-v">4+ years · Odoo v14 – v19</span></div>
+        <div class="fact"><span class="fact-k">Currently</span><span class="fact-v">In-house ERP engineer + remote consultant</span></div>
+        <div class="fact"><span class="fact-k">Education</span><span class="fact-v">B.Sc. Computer Science</span></div>
+        <div class="fact"><span class="fact-k">Languages</span><span class="fact-v">English · Urdu</span></div>
+        <div class="fact"><span class="fact-k">Response SLA</span><span class="fact-v">4 business hours</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ STACK ============ -->
-<section class="stack-section">
+<section>
   <div class="wrap" data-reveal>
     <div class="stack-grid">
       <div>
-        <div class="section-label">The toolkit</div>
-        <h2 class="section-title" style="font-size: clamp(1.7rem, 3.5vw, 2.6rem);">Built with the same stack your <em>senior team</em> would use.</h2>
-        <p class="section-lead" style="margin-bottom: 0;">No black boxes. Every artifact is reviewable, version-controlled, and upgrade-safe.</p>
+        <div class="sec-label">The toolkit</div>
+        <h2 class="sec-title" style="font-size:clamp(1.7rem,3.5vw,2.6rem);">The same stack your <em>senior team</em> would choose.</h2>
+        <p class="sec-lead" style="margin-bottom:0;">No black boxes. Every artifact is reviewable, version-controlled, and upgrade-safe.</p>
       </div>
-      <div class="stack-chips">
-        <span class="chip accent">Odoo 17 / 18 / 19</span>
+      <div class="chips">
+        <span class="chip hot">Odoo 17 / 18 / 19</span>
         <span class="chip">Python 3.10+</span>
         <span class="chip">PostgreSQL</span>
         <span class="chip">XML / QWeb</span>
-        <span class="chip accent">OWL.js</span>
+        <span class="chip hot">OWL.js</span>
         <span class="chip">JavaScript</span>
-        <span class="chip">REST / OAuth2</span>
+        <span class="chip cool">REST / OAuth2</span>
         <span class="chip">Nginx + SSL</span>
         <span class="chip">Odoo.sh</span>
         <span class="chip">Docker</span>
@@ -1408,7 +900,7 @@
         <span class="chip">CI/CD</span>
         <span class="chip">Pillow</span>
         <span class="chip">wkhtmltopdf</span>
-        <span class="chip accent">WhatsApp Business API</span>
+        <span class="chip cool">WhatsApp Business API</span>
         <span class="chip">Tahometer</span>
         <span class="chip">Biometric integrations</span>
         <span class="chip">Excel / openpyxl</span>
@@ -1417,42 +909,29 @@
   </div>
 </section>
 
-<!-- ============ WHY ME ============ -->
+<!-- ============ WHY ============ -->
 <section>
   <div class="wrap" data-reveal>
-    <div class="section-label">Why work with me</div>
-    <h2 class="section-title">Hire the <em>fix</em>, not the freelancer.</h2>
-    <p class="section-lead">What separates a $7/hr listing from a $1,200 fixed-scope delivery: ownership, accountability, and senior-grade engineering practice.</p>
-
+    <div class="sec-label">Why work with me</div>
+    <h2 class="sec-title">Hire the <em>fix,</em> not the freelancer.</h2>
+    <p class="sec-lead">What separates a $7/hr listing from a fixed-scope delivery: ownership, accountability, and senior-grade engineering practice.</p>
     <div class="why-grid">
-      <div class="why-item">
-        <span class="why-mark">★</span>
-        <div>
-          <h4>End-to-end ownership</h4>
-          <p>I scope it, build it, deploy it, document it, and hand it off. No "that's not in scope" surprises mid-sprint.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <span class="why-mark">★</span>
-        <div>
-          <h4>Upgrade-safe code</h4>
-          <p>Proper module inheritance, no Studio hacks, security rules on every model. Your customizations survive the next Odoo release.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <span class="why-mark">★</span>
-        <div>
-          <h4>Senior engineering discipline</h4>
-          <p>Git workflows, PR reviews, CI/CD, staging deploys, and a built-in AI security gatekeeper that audits every commit before merge.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <span class="why-mark">★</span>
-        <div>
-          <h4>Communication that respects your time</h4>
-          <p>Daily standups, written progress on shared boards, and a 4-hr response SLA. You'll always know what's shipping and when.</p>
-        </div>
-      </div>
+      <div class="why-item"><span class="why-mark">§</span><div>
+        <h4>End-to-end ownership</h4>
+        <p>I scope it, build it, deploy it, document it, and hand it off. No "that's not in scope" surprises mid-sprint.</p>
+      </div></div>
+      <div class="why-item"><span class="why-mark">§</span><div>
+        <h4>Upgrade-safe code</h4>
+        <p>Proper module inheritance, no Studio hacks, security rules coded on every model. Your customizations survive the next Odoo release.</p>
+      </div></div>
+      <div class="why-item"><span class="why-mark">§</span><div>
+        <h4>Senior engineering discipline</h4>
+        <p>Git workflows, PR reviews, CI/CD, staging deploys, and an AI security gatekeeper auditing every commit before merge.</p>
+      </div></div>
+      <div class="why-item"><span class="why-mark">§</span><div>
+        <h4>Communication that respects your time</h4>
+        <p>Daily standups, written progress on shared boards, and a 4-hr response SLA. You always know what ships and when.</p>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1460,32 +939,32 @@
 <!-- ============ FAQ ============ -->
 <section id="faq">
   <div class="wrap" data-reveal>
-    <div class="section-label">Common questions</div>
-    <h2 class="section-title">Things <em>buyers ask</em> before booking.</h2>
+    <div class="sec-label">Common questions</div>
+    <h2 class="sec-title">What buyers ask <em>before booking.</em></h2>
     <div class="faq">
       <details class="faq-item">
         <summary class="faq-q">Do you work on both Odoo Community and Enterprise?<span class="faq-toggle">+</span></summary>
-        <p class="faq-a">Yes — both editions, versions 14 through 19. Most of my recent work is on 17, 18, and 19. I'll tell you upfront if a feature requires Enterprise so you can factor licensing into the decision.</p>
+        <p class="faq-a">Both, versions 14 through 19 — most recent work is on 17, 18, and 19. If a feature genuinely requires Enterprise licensing, I flag it before you commit, so it factors into the decision, not the invoice.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Will you fix a previous developer's mess?<span class="faq-toggle">+</span></summary>
-        <p class="faq-a">Often, yes — that's actually a frequent engagement. Start with the Diagnostic Sprint so I can audit what's there, identify what's salvageable, and quote the cleanup honestly. I won't pretend nothing's wrong to win the project.</p>
+        <p class="faq-a">Frequently — it's one of my most common engagements. The Diagnostic Sprint exists for exactly this: I audit what's there, tell you what's salvageable, and quote the cleanup honestly, even when the honest answer costs me the bigger project.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">How do you handle scope creep?<span class="faq-toggle">+</span></summary>
-        <p class="faq-a">Every engagement starts with a written scope document. Anything outside that scope gets a written change order with its own estimate and timeline. You stay in control — no surprise invoices.</p>
+        <p class="faq-a">Every engagement starts from a written scope document. Anything outside it becomes a written change order with its own estimate and timeline. You stay in control — there are no surprise invoices, by design.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Can you sign an NDA?<span class="faq-toggle">+</span></summary>
         <p class="faq-a">Yes. I regularly sign mutual NDAs before discovery calls when client data or proprietary processes are involved. Send yours, or use mine.</p>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">Do you host or just develop?<span class="faq-toggle">+</span></summary>
-        <p class="faq-a">Both options available. I deploy to Odoo.sh, your own VPS (Nginx + SSL hardened), or hybrid setups. Hosting choice usually depends on data residency, budget, and team familiarity — happy to advise.</p>
+        <summary class="faq-q">Do you host, or only develop?<span class="faq-toggle">+</span></summary>
+        <p class="faq-a">Both. I deploy to Odoo.sh, your own VPS (Nginx + SSL hardened), or hybrid setups. The right choice usually comes down to data residency, budget, and what your team can maintain — I'll advise, not upsell.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">What happens after the engagement ends?<span class="faq-toggle">+</span></summary>
-        <p class="faq-a">You own everything — source code, documentation, deployment configs. A 14-day hypercare window is included on every Build &amp; Ship engagement. After that you can extend on a retainer or hire your in-house team to maintain it.</p>
+        <p class="faq-a">You own everything — source code, documentation, deployment configs. Build &amp; Ship engagements include a 14-day hypercare window. After that, extend on a retainer or hand maintenance to your in-house team; there's no lock-in either way.</p>
       </details>
     </div>
   </div>
@@ -1496,23 +975,19 @@
   <div class="wrap" data-reveal>
     <div class="cta-block">
       <h2 class="cta-title">Tell me your bottleneck. <em>I'll map it, automate it, ship it.</em></h2>
-      <p class="cta-sub">Book a free 30-minute discovery call. No sales pitch — just a working session to figure out whether I'm the right person to fix your Odoo.</p>
+      <p class="cta-sub">Book a free 30-minute discovery call. No sales pitch — a working session to figure out whether I'm the right person to fix your Odoo.</p>
       <div class="cta-buttons">
         <a href="mailto:abdulbasit.officialwork@gmail.com?subject=Odoo%20Discovery%20Call%20Request&body=Hi%20Abdul%2C%0A%0AI'd%20like%20to%20schedule%20a%20discovery%20call%20about%20my%20Odoo%20setup.%0A%0AHere's%20a%20quick%20note%20on%20what's%20bothering%20me%3A%0A%0A%5BYour%20message%20here%5D%0A%0AThanks!" class="btn btn-primary btn-large">Email me <span class="arrow">→</span></a>
-        <a href="https://wa.me/qr/ZGEFWENWRH36B1" target="_blank" rel="noopener" class="btn btn-whatsapp btn-large">
-          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-          </svg>
+        <a href="https://wa.me/qr/ZGEFWENWRH36B1" target="_blank" rel="noopener" class="btn btn-wa btn-large">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp
         </a>
       </div>
-
       <div class="cta-qr">
-        <div class="cta-qr-divider">
-          <span>or scan with your phone</span>
-        </div>
+        <div class="cta-qr-divider"><span>or scan with your phone</span></div>
         <a href="https://wa.me/qr/ZGEFWENWRH36B1" target="_blank" rel="noopener" class="cta-qr-card" aria-label="Scan QR code to open WhatsApp chat">
-          <img src="whatsapp-qr.png" alt="WhatsApp QR for Abdul Basit" loading="lazy" />
+          <img src="whatsapp-qr.png" alt="WhatsApp QR for Abdul Basit" loading="lazy"
+               onerror="this.closest('.cta-qr').style.display='none'" />
         </a>
       </div>
     </div>
@@ -1538,50 +1013,152 @@
 <!-- ============ FLOATING WHATSAPP ============ -->
 <a href="https://wa.me/qr/ZGEFWENWRH36B1" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with Abdul on WhatsApp">
   <span class="wa-float-label">Chat on WhatsApp</span>
-  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-  </svg>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
 <script>
-  // ----- Mobile menu -----
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileNav = document.getElementById('mobileNav');
-  const setMenu = (open) => {
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    mobileNav.classList.toggle('open', open);
-  };
-  menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+// ----- Mobile menu -----
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+const setMenu = (open) => {
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  mobileNav.classList.toggle('open', open);
+};
+menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
-  // ----- FAQ accordion: close others when one opens -----
-  const faqs = document.querySelectorAll('.faq-item');
-  faqs.forEach(item => {
-    item.addEventListener('toggle', () => {
-      if (item.open) {
-        faqs.forEach(other => { if (other !== item) other.open = false; });
-      }
+// ----- FAQ accordion: single-open -----
+const faqs = document.querySelectorAll('.faq-item');
+faqs.forEach(item => {
+  item.addEventListener('toggle', () => {
+    if (item.open) faqs.forEach(o => { if (o !== item) o.open = false; });
+  });
+});
+
+// ----- Scroll reveal -----
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('[data-reveal]');
+if (!prefersReduced && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in-view'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in-view'));
+}
+
+// ----- Hero document chain animation -----
+(() => {
+  const nodes = [...document.querySelectorAll('#chainTrack .chain-node')];
+  const status = document.getElementById('chainStatus');
+  const states = ['confirmed', 'confirmed', 'done', 'posted', 'paid'];
+  if (!nodes.length) return;
+  if (prefersReduced) {
+    nodes.forEach((n, i) => {
+      n.classList.add('done');
+      n.querySelector('.chain-state').textContent = states[i];
+    });
+    status.textContent = 'reconciled ✓';
+    return;
+  }
+  let i = 0;
+  const tick = () => {
+    if (i < nodes.length) {
+      const idx = i;
+      const n = nodes[idx];
+      nodes.forEach(x => x.classList.remove('active'));
+      n.classList.add('active');
+      n.querySelector('.chain-state').textContent = 'processing…';
+      status.textContent = 'syncing…';
+      setTimeout(() => {
+        n.classList.remove('active');
+        n.classList.add('done');
+        n.querySelector('.chain-state').textContent = states[idx];
+      }, 850);
+      i++;
+      setTimeout(tick, 1100);
+    } else {
+      status.textContent = 'reconciled ✓';
+      status.style.color = 'var(--ok)';
+      // Reset and loop after a pause
+      setTimeout(() => {
+        nodes.forEach((n, j) => {
+          n.classList.remove('done', 'active');
+          n.querySelector('.chain-state').textContent = j === 0 ? 'draft' : '—';
+        });
+        status.textContent = 'syncing…';
+        status.style.color = '';
+        i = 0;
+        setTimeout(tick, 600);
+      }, 4200);
+    }
+  };
+  setTimeout(tick, 900);
+})();
+
+// ----- Bottleneck diagnoser -----
+(() => {
+  const chips = [...document.querySelectorAll('.diag-chip')];
+  const title = document.getElementById('diagTitle');
+  const body = document.getElementById('diagBody');
+  const mail = document.getElementById('diagMail');
+  const EMAIL = 'abdulbasit.officialwork@gmail.com';
+
+  const MAP = {
+    reconcile: {
+      t: 'Start with a <em>Diagnostic Sprint.</em>',
+      b: 'Reconciliation gaps are almost always a valuation-layer or costing-method issue, not "bad data". Three days of audit finds the root cause before anyone spends money rebuilding.',
+      s: 'Inventory / accounting reconciliation issue',
+      m: 'Our inventory and accounting figures do not reconcile. I would like to start with your Diagnostic Sprint.'
+    },
+    mess: {
+      t: 'Start with a <em>Diagnostic Sprint.</em>',
+      b: 'Before anyone rebuilds anything, you need to know what is salvageable. The audit gives you a written report and an honest cleanup quote — even if the honest answer is "less work than you feared".',
+      s: 'Cleanup of a previous developer\'s customizations',
+      m: 'A previous developer left us with customizations we do not trust. I would like a Diagnostic Sprint to audit what is there.'
+    },
+    module: {
+      t: 'That\'s a <em>Build &amp; Ship</em> engagement.',
+      b: 'Fixed scope, fixed fee, 2–4 weeks: scoping document, the module or report itself, staging deploy, production cutover, and 14 days of hypercare.',
+      s: 'Custom module / report — fixed scope',
+      m: 'We need a custom Odoo module or report built. I would like to scope a Build & Ship engagement.'
+    },
+    integration: {
+      t: 'That\'s a <em>Build &amp; Ship</em> engagement.',
+      b: 'API integrations are scoped like modules: auth model, sync direction, failure handling, and a staging run before anything touches production data.',
+      s: 'System integration with Odoo',
+      m: 'We need Odoo connected to another system via API. I would like to scope a Build & Ship engagement.'
+    },
+    migration: {
+      t: '<em>Build &amp; Ship</em> — with a reconciliation gate.',
+      b: 'Migrations are fixed-scope work with one extra rule: finance signs off on reconciled numbers before cutover, or cutover doesn\'t happen. I\'m running a 124-module v17 → v19 right now.',
+      s: 'Odoo version migration',
+      m: 'We have a version migration that is stuck or feels risky. I would like to discuss a fixed-scope migration engagement.'
+    },
+    ongoing: {
+      t: 'You want the <em>Embedded Partner</em> retainer.',
+      b: '40 rolling hours a month, a weekly check-in, a 4-business-hour response SLA, and direct WhatsApp access. Senior attention without a full-time hire.',
+      s: 'Ongoing Odoo support retainer',
+      m: 'We need ongoing senior Odoo support. I would like to discuss the Embedded Partner retainer.'
+    }
+  };
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+      const d = MAP[chip.dataset.k];
+      title.innerHTML = d.t;
+      body.textContent = d.b;
+      const subject = encodeURIComponent('Odoo enquiry: ' + d.s);
+      const bodyTxt = encodeURIComponent('Hi Abdul,\n\n' + d.m + '\n\nA bit about our setup:\n- Odoo version: \n- Edition (Community/Enterprise): \n- Hosting: \n\nThanks!');
+      mail.href = `mailto:${EMAIL}?subject=${subject}&body=${bodyTxt}`;
     });
   });
-
-  // ----- Scroll reveal for sections -----
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealEls = document.querySelectorAll('[data-reveal]');
-  if (!prefersReduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('in-view'));
-  }
+})();
 </script>
 
 </body>
