@@ -591,7 +591,7 @@ body::before{inset:-140px 0;will-change:transform;transform:translateY(calc(var(
 </head>
 <body>
 
-<a href="#services" class="skip-link">Skip to content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <!-- ============ HEADER ============ -->
 <header>
@@ -628,12 +628,12 @@ body::before{inset:-140px 0;will-change:transform;transform:translateY(calc(var(
   <a href="#book" class="btn btn-primary">Book a call <span class="arrow">→</span></a>
 </nav>
 
-<main>
+<main id="main">
 
 <!-- ============ HERO ============ -->
 <section class="hero" style="border-top:none;">
   <div class="wrap">
-    <span class="hero-eyebrow reveal reveal-1"><span class="live"></span> Available · Booking August 2026</span>
+    <span class="hero-eyebrow reveal reveal-1"><span class="live"></span> Available · Booking <span id="bookingMonth">October 2026</span></span>
 
     <h1 class="hero-title reveal reveal-2">From quotation to ledger — <em>one clean flow.</em></h1>
 
@@ -726,7 +726,7 @@ body::before{inset:-140px 0;will-change:transform;transform:translateY(calc(var(
       </div>
 
       <div class="diag-out">
-        <div class="diag-verdict">
+        <div class="diag-verdict" aria-live="polite">
           <h4 id="diagTitle">Waiting on you. <em>Tap one above.</em></h4>
           <p id="diagBody">Every path starts with a free 30-minute call — the diagnosis just tells us both where to aim it.</p>
         </div>
@@ -1077,7 +1077,7 @@ body::before{inset:-140px 0;will-change:transform;transform:translateY(calc(var(
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap foot">
-    <div>© 2026 Abdul Basit · Odoo Techno-Functional Developer</div>
+    <div>© <span id="year">2026</span> Abdul Basit · Odoo Techno-Functional Developer</div>
     <div class="foot-links">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -1109,6 +1109,14 @@ const setMenu = (open) => {
 menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
 mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+// ----- Dated copy: roll forward so it never goes stale -----
+(() => {
+  const now = new Date();
+  const month = new Date(now.getFullYear(), now.getMonth() + (now.getDate() >= 15 ? 1 : 0), 1);
+  document.getElementById('bookingMonth').textContent = month.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+  document.getElementById('year').textContent = now.getFullYear();
+})();
 
 // ----- FAQ accordion: single-open -----
 const faqs = document.querySelectorAll('.faq-item');
